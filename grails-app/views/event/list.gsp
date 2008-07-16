@@ -23,10 +23,10 @@
                         
                    	        <g:sortableColumn property="id" title="Id" titleKey="event.id" />
                         
-                   	        <g:sortableColumn property="subject" title="Subject" titleKey="event.subject" />
+                   	        <g:sortableColumn property="name" title="Name" titleKey="event.name" />
                         
-                   	        <th><g:message code="event.type" default="Type" /></th>
-                   	    
+                   	        <g:sortableColumn property="description" title="Description" titleKey="event.description" />
+                        
                    	        <g:sortableColumn property="startTime" title="Start Time" titleKey="event.startTime" />
                         
                    	        <g:sortableColumn property="endTime" title="End Time" titleKey="event.endTime" />
@@ -41,9 +41,9 @@
                         
                             <td><g:link action="show" id="${event.id}">${fieldValue(bean:event, field:'id')}</g:link></td>
                         
-                            <td>${fieldValue(bean:event, field:'subject')}</td>
+                            <td>${fieldValue(bean:event, field:'name')}</td>
                         
-                            <td>${fieldValue(bean:event, field:'type')}</td>
+                            <td>${fieldValue(bean:event, field:'description')}</td>
                         
                             <td>${fieldValue(bean:event, field:'startTime')}</td>
                         

@@ -28,19 +28,19 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="subject"><g:message code="event.subject" default="Subject" />:</label>
+                                    <label for="name"><g:message code="event.name" default="Name" />:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:event,field:'subject','errors')}">
-                                    <input type="text" maxlength="200" id="subject" name="subject" value="${fieldValue(bean:event,field:'subject')}"/>
+                                <td valign="top" class="value ${hasErrors(bean:event,field:'name','errors')}">
+                                    <input type="text" maxlength="200" id="name" name="name" value="${fieldValue(bean:event,field:'name')}"/>
                                 </td>
                             </tr> 
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="type"><g:message code="event.type" default="Type" />:</label>
+                                    <label for="description"><g:message code="event.description" default="Description" />:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:event,field:'type','errors')}">
-                                    <g:select  from="${EventType?.values()}" value="${event?.type}" name="type" ></g:select>
+                                <td valign="top" class="value ${hasErrors(bean:event,field:'description','errors')}">
+                                    <textarea rows="5" cols="40" name="description">${fieldValue(bean:event, field:'description')}</textarea>
                                 </td>
                             </tr> 
                         

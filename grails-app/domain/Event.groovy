@@ -1,6 +1,6 @@
 class Event {
-	String subject
-	EventType type
+	String name
+	String description
 	Date startTime
 	Date endTime
 	Boolean allDay = false
@@ -8,8 +8,8 @@ class Event {
 	Boolean necessaryRegistry = false
 	
 	static constraints = {
-		subject(blank:false,size:5..200)
-		type(nullable:false)
+		name(blank:false,size:5..200)
+		description(blank:false,size:5..2000)
 		startTime(nullable:false)
 		endTime(nullable:false)
 		allDay(nullable:false)

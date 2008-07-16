@@ -29,16 +29,16 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="event.subject" default="Subject" />:</td>
+                            <td valign="top" class="name"><g:message code="event.name" default="Name" />:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:event, field:'subject')}</td>
+                            <td valign="top" class="value">${fieldValue(bean:event, field:'name')}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="event.type" default="Type" />:</td>
+                            <td valign="top" class="name"><g:message code="event.description" default="Description" />:</td>
                             
-                            <td valign="top" class="value">${event?.type?.encodeAsHTML()}</td>
+                            <td valign="top" class="value">${fieldValue(bean:event, field:'description')}</td>
                             
                         </tr>
                     
