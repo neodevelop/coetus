@@ -84,6 +84,15 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="necessaryRegistry"><g:message code="talk.necessaryRegistry" default="Necessary Registry" />:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:talk,field:'necessaryRegistry','errors')}">
+                                    <g:checkBox name="necessaryRegistry" value="${talk?.necessaryRegistry}" ></g:checkBox>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="speakers"><g:message code="talk.speakers" default="Speakers" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:talk,field:'speakers','errors')}">

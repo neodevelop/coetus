@@ -5,6 +5,7 @@ class Talk {
 	Date startDate
 	Date endDate
 	String location
+	Boolean necessaryRegistry = false
 	
 	static belongsTo = Speaker
 	static hasMany = [speakers:Speaker]
@@ -16,5 +17,6 @@ class Talk {
 		startDate()
 		endDate()
 		location(blank:false,size:1..100)
+		necessaryRegistry(nullable:false)
 	}
 }

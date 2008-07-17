@@ -71,6 +71,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="talk.necessaryRegistry" default="Necessary Registry" />:</td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean:talk, field:'necessaryRegistry')}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="talk.speakers" default="Speakers" />:</td>
                             
                             <td valign="top" class="value">${fieldValue(bean:talk, field:'speakers')}</td>
