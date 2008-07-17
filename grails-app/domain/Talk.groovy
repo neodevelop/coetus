@@ -9,6 +9,7 @@ class Talk {
 	
 	static belongsTo = Speaker
 	static hasMany = [speakers:Speaker]
+	//static hasMany = [ participants : Participant ]
 	
 	static constraints = {
 		event()
