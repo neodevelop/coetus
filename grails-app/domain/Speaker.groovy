@@ -6,7 +6,6 @@ class Speaker {
 	String company
 	Boolean publicEmail = false
 	
-	static belongsTo = [Talk]
 	static hasMany = [talks:Talk]
 	
 	static constraints = {
@@ -17,4 +16,10 @@ class Speaker {
 		company(blank:true,size:1..100)
 		publicEmail()
 	}
+
+	static mapping = {
+		talks column:'idSpeaker_talks'
+	}
 }
+
+

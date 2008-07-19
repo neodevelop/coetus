@@ -1,5 +1,12 @@
 class BootStrap {
 	def init = { servletContext ->
+		
+		
+		
+		
+//		new Author(name:"Stephen King").addToBooks(new Book(title:"The Stand")).addToBooks(new Book(title:"The Shining")).save()
+				
+				
 		def evento = new Event()
 		def domingo = new Speaker()
 		def andres = new Speaker()
@@ -32,12 +39,18 @@ class BootStrap {
 			andres = new Speaker(name:"Andres Almiray", bio:"Chido", blog:"http://www.jroller.com/aalmiray/", email:"aalmiray@yahoo.com", company:"Oracle")
 			andres.save()
 			
-			compartida.addToSpeakers(andres)
-			compartida.addToSpeakers(domingo)
-			//andres.addToTalks(compartida).save()
-			//domingo.addToTalks(compartida).save()
+			//compartida.addToSpeakers(andres)
+			//compartida.addToSpeakers(domingo)
+			andres.addToTalks(compartida).save()
+			domingo.addToTalks(compartida).save()
+			
+			andres.addToTalks(groovyT).save()
+			
+			domingo.addToTalks(grailsT).save()
 			
 			
+			println "Charlas de andres: " + andres.talks.size()
+			println "Oradores de la charla compartida: " + compartida.speakers.size()
 			
 			//andres.addToTalks(groovyT).save()
 			

@@ -7,8 +7,10 @@ class Talk {
 	String location
 	Boolean necessaryRegistry = false
 	
-	static hasMany = [speakers:Speaker, participants:Participant]
-	//static hasMany = [ participants : Participant ]
+	//static belongsTo = [Speaker, Participant]
+	//static hasMany = [speakers:Speaker, participants:Participant]
+	static belongsTo = Speaker
+	static hasMany = [speakers:Speaker]
 	
 	static constraints = {
 		event()
@@ -18,5 +20,9 @@ class Talk {
 		endDate()
 		location(blank:false,size:1..100)
 		necessaryRegistry(nullable:false)
+	}
+	
+	static mapping = {
+		speakers column:'idTalk_speakers'
 	}
 }
