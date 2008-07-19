@@ -2,13 +2,12 @@ class Talk {
 	Event event
 	String title
 	String summary
-	Date startDate
-	Date endDate
+	Date startDate = new Date()
+	Date endDate = new Date()
 	String location
 	Boolean necessaryRegistry = false
 	
-	static belongsTo = Speaker
-	static hasMany = [speakers:Speaker]
+	static hasMany = [speakers:Speaker, participants:Participant]
 	//static hasMany = [ participants : Participant ]
 	
 	static constraints = {

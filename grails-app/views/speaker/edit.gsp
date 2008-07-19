@@ -66,6 +66,15 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="company"><g:message code="speaker.company" default="Company" />:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:speaker,field:'company','errors')}">
+                                    <input type="text" maxlength="100" id="company" name="company" value="${fieldValue(bean:speaker,field:'company')}"/>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="publicEmail"><g:message code="speaker.publicEmail" default="Public Email" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:speaker,field:'publicEmail','errors')}">

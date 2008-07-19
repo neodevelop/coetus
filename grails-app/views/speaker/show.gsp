@@ -57,6 +57,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="speaker.company" default="Company" />:</td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean:speaker, field:'company')}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="speaker.publicEmail" default="Public Email" />:</td>
                             
                             <td valign="top" class="value">${fieldValue(bean:speaker, field:'publicEmail')}</td>

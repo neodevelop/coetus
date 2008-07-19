@@ -1,7 +1,11 @@
 dataSource {
 	pooled = true
-	driverClassName = "org.hsqldb.jdbcDriver"
-	username = "sa"
+	//driverClassName = "org.hsqldb.jdbcDriver"
+	//username = "sa"
+	//password = ""
+	driverClassName = "com.mysql.jdbc.Driver"
+	dialect = org.hibernate.dialect.MySQLInnoDBDialect
+	username = "root"
 	password = ""
 }
 hibernate {
@@ -14,7 +18,8 @@ environments {
 	development {
 		dataSource {
 			dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-			url = "jdbc:hsqldb:mem:devDB"
+			//url = "jdbc:hsqldb:mem:devDB"
+			url = "jdbc:mysql://localhost:3306/coetus_dev"
 		}
 	}
 	test {

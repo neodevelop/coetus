@@ -31,7 +31,7 @@
                         
                    	        <g:sortableColumn property="email" title="Email" titleKey="speaker.email" />
                         
-                   	        <g:sortableColumn property="publicEmail" title="Public Email" titleKey="speaker.publicEmail" />
+                   	        <g:sortableColumn property="company" title="Company" titleKey="speaker.company" />
                         
                         </tr>
                     </thead>
@@ -49,7 +49,7 @@
                         
                             <td>${fieldValue(bean:speaker, field:'email')}</td>
                         
-                            <td>${fieldValue(bean:speaker, field:'publicEmail')}</td>
+                            <td>${fieldValue(bean:speaker, field:'company')}</td>
                         
                         </tr>
                     </g:each>

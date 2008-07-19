@@ -1,8 +1,8 @@
 class Event {
 	String name
 	String description
-	Date startTime
-	Date endTime
+	Date startTime = new Date()
+	Date endTime = new Date()
 	Boolean allDay = false
 	String location
 	Boolean necessaryRegistry = false
