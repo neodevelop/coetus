@@ -3,5 +3,5 @@ class Participant {
 	String company
 	String email
 	
-	//static hasMany = [talks:Talk]
+	static hasMany = [talks:Talk]
 }
