@@ -16,9 +16,10 @@
 						<h2>by synergyj.com</h2>
 					</div>
 					<div id="splash"></div>
+
 					<div id="menu">
 						<ul>
-							<li class="first"><a href="#">Home</a></li>
+							<li class="first"><a class="home" href="${createLinkTo(dir:'')}"><g:message code="home" default="Home" /></a></li>
 							<li><a href="#">Registro</a></li>
 							<li><a href="#">Recomienda</a></li>
 							<li><a href="#">Resumen</a></li>
@@ -26,9 +27,35 @@
 						</ul>
 					<div id="date">Bienvenido</div>
 					</div>
+
 					<div id="primarycontent">
 						<g:layoutBody />
 					</div>
+					
+					<div id="secondarycontent">
+
+						<!-- secondary content start -->
+		
+						<h3>Acerca de Nosotros</h3>
+						<div class="content">
+							<img src="${createLinkTo(dir:'images',file:'banner.jpg')}" class="picB" alt="" />
+							<p>Somos los fundadores del portal <strong><a href="http://springhispano.org">SpringHispano.org</a></strong>, nos gusta lo que hacemos: desarrollamos software y compartimos nuestras experiencias en este portal...
+							</p>
+						</div>
+			
+						<h3>Controllers</h3>
+						<div class="content">
+							<ul class="linklist">
+								<g:each var="c" in="${grailsApplication.controllerClasses}">
+									<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
+								</g:each>							</ul>
+						</div>
+
+						<!-- secondary content end -->
+
+					</div>
+
+
 					<div id="footer">
 						&copy; .: Coetus. By SynergyJ.com - Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a> :.
 					</div>
