@@ -6,6 +6,7 @@ class Event {
 	Boolean allDay = false
 	String location
 	Boolean necessaryRegistry = false
+	Status status = Status.PLANNING
 	
 	static constraints = {
 		name(blank:false,size:5..200)
