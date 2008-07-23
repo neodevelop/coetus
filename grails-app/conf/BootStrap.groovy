@@ -1,6 +1,6 @@
 class BootStrap {
 	def init = { servletContext ->
-		
+				
 		def evento = new Event()
 		def domingo = new Speaker()
 		def andres = new Speaker()
@@ -63,15 +63,6 @@ class BootStrap {
 			asistente2.addToTalks(compartida)
 			asistente1.addToTalks(grailsT)
 			asistente2.save()
-			
-			
-			/*
-			
-			def asistente1 = new Participant(username:"domix",userRealName:"Domingo Suarez", passwd:"pwd", email:"domingo.suarez@gmail.com", company:"Bursatec",)
-			
-			println "Charlas de andres: " + andres.talks.size()
-			println "Oradores de la charla compartida: " + compartida.speakers.size()
-			*/
 			
 		}
      }

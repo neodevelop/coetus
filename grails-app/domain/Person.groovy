@@ -30,11 +30,11 @@ class Person {
 	static constraints = {
 		username(blank: false, unique: true,size:1..30)
 		userRealName(blank: false,size:1..200)
-		company(blank:true,size:1..100)
-		passwd(blank: false,size:1..30)
-		email(blank: false,size:1..300,email:true)
-		description(blank:true,size:1..1000)
-		blog(blank:true,url:true,size:1..300)
+		company(nullable:true,blank:true,size:0..100)
+		passwd(blank: false,size:0..300)
+		email(blank:true,size:0..300,email:true)
+		description(blank:true,size:0..1000)
+		blog(nullable:true,blank:true,url:true,size:0..300)
 		enabled()
 	}
 	
