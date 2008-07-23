@@ -1,12 +1,6 @@
 class BootStrap {
 	def init = { servletContext ->
 		
-		
-		
-		
-//		new Author(name:"Stephen King").addToBooks(new Book(title:"The Stand")).addToBooks(new Book(title:"The Shining")).save()
-				
-				
 		def evento = new Event()
 		def domingo = new Speaker()
 		def andres = new Speaker()
@@ -22,7 +16,7 @@ class BootStrap {
 			evento.save()
 		}
 		
-		if(Speaker.count() == 0) {
+		if(Person.count() == 0) {
 			
 			compartida = new Talk(event:evento, title:"Presentacion del GUG", summary:"Chido", location:"Por alla")
 			compartida.save()
@@ -48,6 +42,27 @@ class BootStrap {
 			
 			grailsT.addToSpeakers(andres)
 			grailsT.save()
+			
+			
+			def usr1 = new Person(username:"jkings",userRealName:"Juanelo", passwd:"pwd", email:"reyesmjm@gmail.com", company:"IFE", bio:"Chido", blog:"http://www.reyesmjm.org")
+			usr1.save()
+			def usr2 = new Person(username:"jordi",userRealName:"Jorge", passwd:"pwd", email:"jorge@gmail.com", company:"IFE", bio:"Chido", blog:"http://www.reyesmjm.org")
+			usr2.save()
+			
+			
+			def asistente1 = new Attendee(person:usr1, event:evento)
+			asistente1.save()
+			
+			def asistente2 = new Attendee(person:usr2, event:evento)
+			asistente2.save()
+			
+			asistente1.addToTalks(compartida)
+			asistente1.addToTalks(groovyT)
+			asistente1.save()
+			
+			asistente2.addToTalks(compartida)
+			asistente1.addToTalks(grailsT)
+			asistente2.save()
 			
 			
 			/*
