@@ -42,13 +42,13 @@
 							<p>Somos los fundadores del portal <strong><a target="_blank" href="http://www.springhispano.org">SpringHispano.org</a></strong>, nos gusta lo que hacemos: desarrollamos software y compartimos nuestras experiencias en este portal...
 							</p>
 						</div>
-			
+<!--			
 						<h3>Controllers</h3>
 						<div class="content">
 							<ul class="linklist">
 							</ul>
 						</div>
-
+-->
 						<!-- secondary content end -->
 
 					</div>
