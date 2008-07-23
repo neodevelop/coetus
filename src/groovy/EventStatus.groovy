@@ -1,5 +1,7 @@
-enum EventType {
-	TALK,
-	MEETING,
-	CONFERENCE
+enum EventStatus {
+	PLANNING,
+	OPEN,
+	FULL,
+	CANCELLED,
+	CLOSE
 }
