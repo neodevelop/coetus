@@ -33,29 +33,30 @@ class BootStrap {
 			grailsT = new Talk(event:evento, title:"Introduccion a Grails", summary:"Chido", location:"Por alla")
 			grailsT.save()
 			
-			domingo = new Speaker(name:"Domingo Suarez", bio:"Chido", blog:"http://www.domix.org", email:"domingo.suarez@gmail.com", company:"Bursatec")
+			domingo = new Person(username:"domix",userRealName:"Domingo Suarez", passwd:"pwd", email:"domingo.suarez@gmail.com", company:"Bursatec", bio:"Chido", blog:"http://www.domix.org")
 			domingo.save()
 			
-			andres = new Speaker(name:"Andres Almiray", bio:"Chido", blog:"http://www.jroller.com/aalmiray/", email:"aalmiray@yahoo.com", company:"Oracle")
+			andres = new Person(username:"aalmiray",userRealName:"Andres Almiray", passwd:"pwd", email:"aalmiray@yahoo.com", company:"Oracle", bio:"Chido", blog:"http://www.jroller.com/aalmiray/")
 			andres.save()
 			
-			//compartida.addToSpeakers(andres)
-			//compartida.addToSpeakers(domingo)
-			andres.addToTalks(compartida).save()
-			domingo.addToTalks(compartida).save()
+			compartida.addToSpeakers(andres)
+			compartida.addToSpeakers(domingo)
+			compartida.save()
 			
-			andres.addToTalks(groovyT).save()
+			groovyT.addToSpeakers(andres)
+			groovyT.save()
 			
-			domingo.addToTalks(grailsT).save()
+			grailsT.addToSpeakers(andres)
+			grailsT.save()
 			
+			
+			/*
+			
+			def asistente1 = new Participant(username:"domix",userRealName:"Domingo Suarez", passwd:"pwd", email:"domingo.suarez@gmail.com", company:"Bursatec",)
 			
 			println "Charlas de andres: " + andres.talks.size()
 			println "Oradores de la charla compartida: " + compartida.speakers.size()
-			
-			//andres.addToTalks(groovyT).save()
-			
-			//domingo.addToTalks(grailsT).save()
-			
+			*/
 			
 		}
      }

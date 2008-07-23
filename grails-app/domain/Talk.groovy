@@ -7,8 +7,8 @@ class Talk {
 	String location
 	Boolean necessaryRegistry = false
 	
-	static belongsTo = [Speaker, Participant]
-	static hasMany = [speakers:Speaker, participants:Participant]
+	static belongsTo = Person
+	static hasMany = [speakers:Person]
 	
 	static constraints = {
 		event()
@@ -21,7 +21,6 @@ class Talk {
 	}
 	
 	static mapping = {
-		speakers column:'idTalk_speakers'
-		participants column:'idTalk_participant'
+		speakers column:'talk_Id',joinTable:'TALKS_SPEAKERS'
 	}
 }
