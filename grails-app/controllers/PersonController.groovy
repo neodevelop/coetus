@@ -1,3 +1,3 @@
-class TalkController {
+class PersonController {
     def scaffold = true
 }

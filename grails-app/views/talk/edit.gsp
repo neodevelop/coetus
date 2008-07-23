@@ -8,7 +8,6 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}"><g:message code="home" default="Home" /></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="talk.list" default="Talk List" /></g:link></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="talk.new" default="New Talk" /></g:link></span>
         </div>
@@ -93,16 +92,34 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="capacity"><g:message code="talk.capacity" default="Capacity" />:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:talk,field:'capacity','errors')}">
+                                    <input type="text" id="capacity" name="capacity" value="${fieldValue(bean:talk,field:'capacity')}" />
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="displayCapacity"><g:message code="talk.displayCapacity" default="Display Capacity" />:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:talk,field:'displayCapacity','errors')}">
+                                    <g:checkBox name="displayCapacity" value="${talk?.displayCapacity}" ></g:checkBox>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="speakers"><g:message code="talk.speakers" default="Speakers" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:talk,field:'speakers','errors')}">
                                     
 <ul>
 <g:each var="s" in="${talk?.speakers?}">
-    <li><g:link controller="speaker" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="person" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
 </g:each>
 </ul>
-<g:link controller="speaker" params="['talk.id':talk?.id]" action="create">Add Speaker</g:link>
+<g:link controller="person" params="['talk.id':talk?.id]" action="create">Add Person</g:link>
 
                                 </td>
                             </tr> 

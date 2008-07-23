@@ -41,4 +41,6 @@ class Person {
 	static mapping = {
 		tablePerHierarchy false
 	}
+	
+	String toString() { "${username} - ${userRealName}" }
 }

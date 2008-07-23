@@ -8,7 +8,6 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}"><g:message code="home" default="Home" /></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="talk.list" default="Talk List" /></g:link></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="talk.new" default="New Talk" /></g:link></span>
         </div>
@@ -78,9 +77,29 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="talk.capacity" default="Capacity" />:</td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean:talk, field:'capacity')}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="talk.displayCapacity" default="Display Capacity" />:</td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean:talk, field:'displayCapacity')}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="talk.speakers" default="Speakers" />:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:talk, field:'speakers')}</td>
+                            <td  valign="top" style="text-align:left;" class="value">
+                                <ul>
+                                <g:each var="s" in="${talk.speakers}">
+                                    <li><g:link controller="person" action="show" id="${s.id}">${s.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
                             
                         </tr>
                     

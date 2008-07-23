@@ -8,7 +8,6 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}"><g:message code="home" default="Home" /></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="talk.list" default="Talk List" /></g:link></span>
         </div>
         <div class="body">
@@ -86,6 +85,24 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:talk,field:'necessaryRegistry','errors')}">
                                     <g:checkBox name="necessaryRegistry" value="${talk?.necessaryRegistry}" ></g:checkBox>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="capacity"><g:message code="talk.capacity" default="Capacity" />:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:talk,field:'capacity','errors')}">
+                                    <input type="text" id="capacity" name="capacity" value="${fieldValue(bean:talk,field:'capacity')}" />
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="displayCapacity"><g:message code="talk.displayCapacity" default="Display Capacity" />:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:talk,field:'displayCapacity','errors')}">
+                                    <g:checkBox name="displayCapacity" value="${talk?.displayCapacity}" ></g:checkBox>
                                 </td>
                             </tr> 
                         

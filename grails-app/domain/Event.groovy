@@ -16,4 +16,6 @@ class Event {
 		location(blank:false,size:5..200)
 		necessaryRegistry(nullable:false)
 	}
+	
+	String toString() { "${name}" }
 }
