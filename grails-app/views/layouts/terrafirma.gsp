@@ -39,16 +39,14 @@
 						<h3>Acerca de Nosotros</h3>
 						<div class="content">
 							<img src="${createLinkTo(dir:'images',file:'banner.jpg')}" class="picB" alt="" />
-							<p>Somos los fundadores del portal <strong><a href="http://springhispano.org">SpringHispano.org</a></strong>, nos gusta lo que hacemos: desarrollamos software y compartimos nuestras experiencias en este portal...
+							<p>Somos los fundadores del portal <strong><a target="_blank" href="http://www.springhispano.org">SpringHispano.org</a></strong>, nos gusta lo que hacemos: desarrollamos software y compartimos nuestras experiencias en este portal...
 							</p>
 						</div>
 			
 						<h3>Controllers</h3>
 						<div class="content">
 							<ul class="linklist">
-								<g:each var="c" in="${grailsApplication.controllerClasses}">
-									<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-								</g:each>							</ul>
+							</ul>
 						</div>
 
 						<!-- secondary content end -->
@@ -57,7 +55,7 @@
 
 
 					<div id="footer">
-						&copy; .: Coetus. By SynergyJ.com - Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a> :.
+						&copy; .: Coetus. By SynergyJ.com - Design by <a target="_blank" href="http://www.nodethirtythree.com/">NodeThirtyThree</a> :.
 					</div>
 				</div>
 			</div>
