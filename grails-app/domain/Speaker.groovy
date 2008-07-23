@@ -1,3 +1,0 @@
-class Speaker extends Person {
-	
-}
