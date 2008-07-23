@@ -6,6 +6,8 @@ class Talk {
 	Date endDate = new Date()
 	String location
 	Boolean necessaryRegistry = false
+	Integer capacity = 0
+	Boolean displayCapacity = false
 	
 	static belongsTo = Person
 	static hasMany = [speakers:Person]
@@ -18,6 +20,8 @@ class Talk {
 		endDate()
 		location(blank:false,size:1..100)
 		necessaryRegistry(nullable:false)
+		capacity()
+		displayCapacity()
 	}
 	
 	static mapping = {
