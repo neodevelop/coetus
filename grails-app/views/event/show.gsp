@@ -76,6 +76,13 @@
                             
                         </tr>
                     
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="event.status" default="Status" />:</td>
+                            
+                            <td valign="top" class="value">${event?.status?.encodeAsHTML()}</td>
+                            
+                        </tr>
+                    
                     </tbody>
                 </table>
             </div>

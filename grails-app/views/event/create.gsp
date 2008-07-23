@@ -88,6 +88,15 @@
                                 </td>
                             </tr> 
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="status"><g:message code="event.status" default="Status" />:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:event,field:'status','errors')}">
+                                    <g:select  from="${EventStatus?.values()}" value="${event?.status}" name="status" ></g:select>
+                                </td>
+                            </tr> 
+                        
                         </tbody>
                     </table>
                 </div>
