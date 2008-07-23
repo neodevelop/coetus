@@ -12,7 +12,7 @@ class BootStrap {
 		if(Event.count() == 0) {
 			println "Agregando evento prueba"
 			
-			evento = new Event(name:"Evento Prueba", description:"Evento dummy", location:"Por alla")
+			evento = new Event(name:"Evento Prueba", description:"Evento dummy", location:"Por alla", status:Status.OPEN)
 			evento.save()
 		}
 		

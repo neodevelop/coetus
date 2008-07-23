@@ -20,12 +20,12 @@
 					<div id="menu">
 						<ul>
 							<li class="first"><a class="home" href="${createLinkTo(dir:'')}"><g:message code="home" default="Home" /></a></li>
-							<li><a href="#">Registro</a></li>
-							<li><a href="#">Recomienda</a></li>
-							<li><a href="#">Resumen</a></li>
-							<li><a href="#">Contactanos</a></li>
+							<g:isNotLoggedIn><li><a href="<g:createLink controller="register" />"><g:message code="signin" default="Sign in" /></a></li></g:isNotLoggedIn>
+							<g:isNotLoggedIn><li><a href="<g:createLink controller="login" />"><g:message code="login" default="Login" /></a></li></g:isNotLoggedIn>
+							
+							<g:isLoggedIn><li><a href="<g:createLink controller="logout" />"><g:message code="logout" default="logout" /></a></li></g:isLoggedIn>
 						</ul>
-					<div id="date">Bienvenido <g:loggedInUserInfo field="userRealName">Invitado</g:loggedInUserInfo></div>
+					<div id="date"><g:message code="welcome" default="Welcome" /> <g:loggedInUserInfo field="userRealName"><g:message code="guest" default="Guest" /></g:loggedInUserInfo></div>
 					</div>
 
 					<div id="primarycontent">
@@ -36,6 +36,19 @@
 
 						<!-- secondary content start -->
 		
+						<h3><g:message code="currents.events" default="Currents Events" /></h3>
+						<div class="content">
+							<ul class="linklist">
+				              <g:each var="c" in="${Event.findAllByStatus(Status.OPEN)}">
+				                    <li>
+					
+									<a href="<g:createLink controller="event" action="detail" id="${c.id}" />">${c.name}</a>
+					</li>
+				              </g:each>
+				            </ul>
+						</div>
+						
+						
 						<h3>Acerca de Nosotros</h3>
 						<div class="content">
 							<img src="${createLinkTo(dir:'images',file:'banner.jpg')}" class="picB" alt="" />
