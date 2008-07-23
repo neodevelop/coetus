@@ -12,7 +12,7 @@
 			<div id="upbg"></div>
 				<div id="inner">
 					<div id="header">
-						<h1><span>coetus</span><sup>1.0</sup></h1>
+						<h1><span><g:meta name="app.name"/></span><sup><g:meta name="app.version"/></sup></h1>
 						<h2>by synergyj.com</h2>
 					</div>
 					<div id="splash"></div>
@@ -55,7 +55,7 @@
 
 
 					<div id="footer">
-						&copy; .: Coetus. By SynergyJ.com - Design by <a target="_blank" href="http://www.nodethirtythree.com/">NodeThirtyThree</a> :.
+						&copy; .: <g:meta name="app.name"/>. <g:meta name="app.version"/> on Grails <g:meta name="app.grails.version"/> By SynergyJ.com - Design by <a target="_blank" href="http://www.nodethirtythree.com/">NodeThirtyThree</a> :.
 					</div>
 				</div>
 			</div>
