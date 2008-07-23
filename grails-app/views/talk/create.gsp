@@ -106,6 +106,15 @@
                                 </td>
                             </tr> 
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="status"><g:message code="talk.status" default="Status" />:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:talk,field:'status','errors')}">
+                                    <g:select  from="${Status?.values()}" value="${talk?.status}" name="status" ></g:select>
+                                </td>
+                            </tr> 
+                        
                         </tbody>
                     </table>
                 </div>

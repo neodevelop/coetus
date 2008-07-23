@@ -93,7 +93,7 @@
                                     <label for="status"><g:message code="event.status" default="Status" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:event,field:'status','errors')}">
-                                    <g:select  from="${EventStatus?.values()}" value="${event?.status}" name="status" ></g:select>
+                                    <g:select  from="${Status?.values()}" value="${event?.status}" name="status" ></g:select>
                                 </td>
                             </tr> 
                         

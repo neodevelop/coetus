@@ -1,4 +1,4 @@
-enum EventStatus {
+enum Status {
 	PLANNING,
 	OPEN,
 	FULL,

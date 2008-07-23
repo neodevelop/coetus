@@ -103,6 +103,13 @@
                             
                         </tr>
                     
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="talk.status" default="Status" />:</td>
+                            
+                            <td valign="top" class="value">${talk?.status?.encodeAsHTML()}</td>
+                            
+                        </tr>
+                    
                     </tbody>
                 </table>
             </div>

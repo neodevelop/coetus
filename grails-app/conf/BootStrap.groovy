@@ -2,8 +2,8 @@ class BootStrap {
 	def init = { servletContext ->
 				
 		def evento = new Event()
-		def domingo = new Speaker()
-		def andres = new Speaker()
+		def domingo = new Person()
+		def andres = new Person()
 		
 		def grailsT = new Talk()
 		def groovyT = new Talk()
