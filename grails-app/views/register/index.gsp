@@ -3,14 +3,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main" />
-    <title>User Registration</title>         
+    <title><g:message code="person.create" default="Create Person" /></title>         
   </head>
   <body>
-    <div class="nav">
-      <span class="menuButton"><a href="${createLinkTo(dir:'')}">Home</a></span>
-    </div>
     <div class="body">
-      <h1>User Registration</h1>
+      <h1><g:message code="person.create" default="Create Person" /></h1>
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
       </g:if>
@@ -24,64 +21,96 @@
           <table>
             <tbody>
 
-              <tr class='prop'>
-                <td valign='top' class='name'>
-                  <label for='username'>Login Name:</label>
-                </td>
-                <td valign='top' 
-                	class='value ${hasErrors(bean:person,field:'username','errors')}'>
-                  <input type="text" name='username' 
-                  		 value="${person?.username?.encodeAsHTML()}"/>
-                </td>
+
+
+			
+			
+			
+				<tr class="prop">
+                  <td valign="top" class="name">
+                      <label for="username"><g:message code="person.username" default="Username" />:</label>
+                  </td>
+                  <td valign="top" class="value ${hasErrors(bean:person,field:'username','errors')}">
+                      <input type="text" maxlength="30" id="username" name="username" value="${fieldValue(bean:person,field:'username')}"/>
+                  </td>
               </tr>
+			
+			
+			
+			
+
+
+
                        
-              <tr class='prop'>
-                <td valign='top' class='name'>
-                  <label for='userRealName'>Full Name:</label>
-                </td>
-                <td valign='top' 
-                    class='value ${hasErrors(bean:person,field:'userRealName','errors')}'>
-                  <input type="text" name='userRealName' 
-                  		 value="${person?.userRealName?.encodeAsHTML()}"/>
-                </td>
+              	<tr class="prop">
+                  <td valign="top" class="name">
+                      <label for="userRealName"><g:message code="person.userRealName" default="User Real Name" />:</label>
+                  </td>
+                  <td valign="top" class="value ${hasErrors(bean:person,field:'userRealName','errors')}">
+                      <input type="text" maxlength="200" id="userRealName" name="userRealName" value="${fieldValue(bean:person,field:'userRealName')}"/>
+                  </td>
               </tr>
+
                        
-              <tr class='prop'>
-                <td valign='top' class='name'>
-                  <label for='passwd'>Password:</label>
-                </td>
-                <td valign='top' 
-                    class='value ${hasErrors(bean:person,field:'passwd','errors')}'>
-                  <input type="password" name='passwd' 
-                         value="${person?.passwd?.encodeAsHTML()}"/>
-                </td>
+              	<tr class="prop">
+                  <td valign="top" class="name">
+                      <label for="passwd"><g:message code="person.passwd" default="Passwd" />:</label>
+                  </td>
+                  <td valign="top" class="value ${hasErrors(bean:person,field:'passwd','errors')}">
+					  <input type="password" name='passwd' value=""/>
+                  </td>
               </tr>
+
+			<tr class="prop">
+                <td valign="top" class="name">
+                    <label for="passwd"><g:message code="person.confirmPassword" default="Confirm Password" />:</label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean:person,field:'passwd','errors')}">
+					  <input type="password" name='repasswd' value=""/>
+                </td>
+            </tr>
+
+
                        
-              <tr class='prop'>
-                <td valign='top' class='name'>
-                  <label for='enabled'>Confirm Password:</label>
-                </td>
-                <td valign='top' 
-                	class='value ${hasErrors(bean:person,field:'passwd','errors')}'>
-                  <input type="password" name='repasswd' 
-                         value="${person?.passwd?.encodeAsHTML()}"/>
-                </td>
-              </tr>
                        
-              <tr class='prop'>
-                <td valign='top' class='name'>
-                  <label for='email'>Email:</label>
+
+			<tr class="prop">
+                <td valign="top" class="name">
+                    <label for="email"><g:message code="person.email" default="Email" />:</label>
                 </td>
-                <td valign='top' 
-                    class='value ${hasErrors(bean:person,field:'email','errors')}'>
-                  <input type="text" name='email' 
-                         value="${person?.email?.encodeAsHTML()}"/>
+                <td valign="top" class="value ${hasErrors(bean:person,field:'email','errors')}">
+                    <input type="text" maxlength="100" id="email" name="email" value="${fieldValue(bean:person,field:'email')}"/>
                 </td>
-              </tr>
+            </tr>
+
+
+			<tr class="prop">
+                <td valign="top" class="name">
+                    <label for="company"><g:message code="person.company" default="Company" />:</label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean:person,field:'company','errors')}">
+                    <input type="text" maxlength="100" id="company" name="company" value="${fieldValue(bean:person,field:'company')}"/>
+                </td>
+            </tr>
+
+
+			<tr class="prop">
+                <td valign="top" class="name">
+                    <label for="blog"><g:message code="person.blog" default="Blog" />:</label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean:person,field:'blog','errors')}">
+                    <input type="text" maxlength="100" id="blog" name="blog" value="${fieldValue(bean:person,field:'blog')}"/>
+                </td>
+            </tr>
+
+
+
+
+
 
               <tr class='prop'>
                 <td valign='bottom' class='name'>
-                  <label for='code'>Enter Code: </label>
+                  <label for='code'><g:message code="person.enterCode" default="Enter Code" />: </label>
                 </td>
                 <td valign='top' class='name'>
                   <input type="text" name="captcha" size="8"/>
@@ -94,9 +123,7 @@
         </div>
         
         <div class="buttons">
-          <span class="formButton">
-            <input type="submit" value="Create"></input>
-          </span>
+			<span class="button"><input class="save" type="submit" value="${message(code:'create', 'default':'Create')}" /></span>
         </div>
             
       </g:form>

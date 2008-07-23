@@ -32,8 +32,8 @@ class Person {
 		userRealName(blank: false,size:1..200)
 		company(nullable:true,blank:true,size:0..100)
 		passwd(blank: false,size:0..300)
-		email(blank:true,size:0..300,email:true)
-		description(blank:true,size:0..1000)
+		email(blank:false,email:true,unique:true)
+		description(nullable:true,blank:true,size:0..1000)
 		blog(nullable:true,blank:true,url:true,size:0..300)
 		enabled()
 	}
