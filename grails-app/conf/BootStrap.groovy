@@ -40,7 +40,7 @@ class BootStrap {
 			groovyT.addToSpeakers(andres)
 			groovyT.save()
 			
-			grailsT.addToSpeakers(andres)
+			grailsT.addToSpeakers(domingo)
 			grailsT.save()
 			
 			
