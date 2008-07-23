@@ -25,7 +25,7 @@
 							<li><a href="#">Resumen</a></li>
 							<li><a href="#">Contactanos</a></li>
 						</ul>
-					<div id="date">Bienvenido</div>
+					<div id="date">Bienvenido <g:loggedInUserInfo field="userRealName">Invitado</g:loggedInUserInfo></div>
 					</div>
 
 					<div id="primarycontent">
