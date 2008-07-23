@@ -77,6 +77,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="event.showStatus" default="Show Status" />:</td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean:event, field:'showStatus')}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="event.status" default="Status" />:</td>
                             
                             <td valign="top" class="value">${event?.status?.encodeAsHTML()}</td>

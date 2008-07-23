@@ -3,5 +3,5 @@ enum Status {
 	OPEN,
 	FULL,
 	CANCELLED,
-	CLOSE
+	CLOSED
 }

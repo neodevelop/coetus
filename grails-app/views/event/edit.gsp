@@ -92,6 +92,15 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="showStatus"><g:message code="event.showStatus" default="Show Status" />:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:event,field:'showStatus','errors')}">
+                                    <g:checkBox name="showStatus" value="${event?.showStatus}" ></g:checkBox>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="status"><g:message code="event.status" default="Status" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:event,field:'status','errors')}">

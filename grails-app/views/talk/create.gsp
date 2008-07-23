@@ -108,6 +108,15 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="showStatus"><g:message code="talk.showStatus" default="Show Status" />:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:talk,field:'showStatus','errors')}">
+                                    <g:checkBox name="showStatus" value="${talk?.showStatus}" ></g:checkBox>
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="status"><g:message code="talk.status" default="Status" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:talk,field:'status','errors')}">

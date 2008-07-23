@@ -9,6 +9,7 @@ class Talk {
 	Integer capacity = 0
 	Boolean displayCapacity = false
 	Status status = Status.PLANNING
+	Boolean showStatus = true
 	
 	static belongsTo = Person
 	static hasMany = [speakers:Person]

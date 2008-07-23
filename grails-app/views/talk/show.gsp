@@ -91,6 +91,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="talk.showStatus" default="Show Status" />:</td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean:talk, field:'showStatus')}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="talk.speakers" default="Speakers" />:</td>
                             
                             <td  valign="top" style="text-align:left;" class="value">
