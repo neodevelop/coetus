@@ -17,6 +17,7 @@
 
 			<g:if test="${event != null}">
 				<h1><g:message code="event.show" default="Show Event" /></h1>
+				<br>
 			     <div class="dialog">
 	                <table>
 	                    <tbody>
