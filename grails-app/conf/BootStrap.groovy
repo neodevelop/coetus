@@ -1,5 +1,11 @@
 class BootStrap {
 	def init = { servletContext ->
+		
+		if(Authority.count() == 0) {
+			new Authority(description:"Usuario del Sistema", authority:"ROLE_USER").save()
+			new Authority(description:"Administrador del Sistema", authority:"ROLE_ADMIN").save()
+			new Authority(description:"Orador", authority:"ROLE_SPEAKER").save()
+		}
 				
 		def evento = new Event()
 		def domingo = new Person()
@@ -18,13 +24,13 @@ class BootStrap {
 		
 		if(Person.count() == 0) {
 			
-			compartida = new Talk(event:evento, title:"Presentacion del GUG", summary:"Chido", location:"Por alla")
+			compartida = new Talk(event:evento, title:"Presentacion del GUG", summary:"Chido", location:"Por alla", status:Status.OPEN)
 			compartida.save()
 			
-			groovyT = new Talk(event:evento, title:"Introduccion a Groovy", summary:"Chido", location:"Por alla")
+			groovyT = new Talk(event:evento, title:"Introduccion a Groovy", summary:"Chido", location:"Por alla", status:Status.OPEN)
 			groovyT.save()
 			
-			grailsT = new Talk(event:evento, title:"Introduccion a Grails", summary:"Chido", location:"Por alla")
+			grailsT = new Talk(event:evento, title:"Introduccion a Grails", summary:"Chido", location:"Por alla", status:Status.OPEN)
 			grailsT.save()
 			
 			domingo = new Person(username:"domix",userRealName:"Domingo Suarez", passwd:"pwd", email:"domingo.suarez@gmail.com", company:"Bursatec", bio:"Chido", blog:"http://www.domix.org")

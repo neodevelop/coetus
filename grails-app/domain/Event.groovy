@@ -9,6 +9,8 @@ class Event {
 	Status status = Status.PLANNING
 	Boolean showStatus = true
 	
+	static hasMany = [talks:Talk]
+	
 	static constraints = {
 		name(blank:false,size:5..200)
 		description(blank:false,size:5..2000)
