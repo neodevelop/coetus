@@ -36,7 +36,7 @@
 
 						<!-- secondary content start -->
 		
-						<h3><g:message code="currents.events" default="Currents Events" /></h3>
+						<h3><g:message code="event.currents" default="Currents Events" /></h3>
 						<div class="content">
 							<ul class="linklist">
 				              <g:each var="c" in="${Event.findAllByStatus(Status.OPEN)}">
