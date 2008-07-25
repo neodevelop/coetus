@@ -56,6 +56,7 @@
 	
 	
 						<div class="buttons">
+							<input type="hidden" name="id" value="${event?.id}" />
 		                    <span class="button"><g:actionSubmit class="save" action="doRegistry" value="${message(code:'update', 'default':'Update')}" /></span>
 		                </div>	
 						
