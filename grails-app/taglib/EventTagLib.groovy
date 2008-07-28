@@ -16,7 +16,7 @@ class EventTagLib {
 		for(event in Event.findAllByStatus(Status.OPEN)) {
 			out << '<li> <a href="'
 			out << request.contextPath
-			out << '/event/detail/'
+			out << '/events/detail/'
 			out << event.id
 			out << '">'
 			out << event.name
@@ -41,7 +41,7 @@ class EventTagLib {
 				for(attendee in attendees) {
 					out << '<li> <a href="'
 					out << request.contextPath
-					out << '/event/myDetail/'
+					out << '/myEvents/myDetail/'
 					out << attendee.event.id
 					out << '">'
 					out << attendee.event.name

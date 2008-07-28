@@ -43,7 +43,7 @@
 					<div class="buttons">
 			            <g:form>
 			                <input type="hidden" name="id" value="${event?.id}" />
-							<g:link controller="event" action="register" id="${event.id}">
+							<g:link controller="myEvents" action="register" id="${event.id}">
 								<span>
 									<g:message code="event.register" default="Register" />
 								</span>

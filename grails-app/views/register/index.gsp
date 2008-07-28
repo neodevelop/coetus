@@ -21,11 +21,6 @@
         <div class="dialog">
           <table>
             <tbody>
-
-
-
-			
-			
 			
 				<tr class="prop">
                   <td valign="top" class="name">
@@ -36,13 +31,6 @@
                   </td>
               </tr>
 			
-			
-			
-			
-
-
-
-                       
               	<tr class="prop">
                   <td valign="top" class="name">
                       <label for="userRealName"><g:message code="person.userRealName" default="User Real Name" />:</label>
@@ -51,7 +39,6 @@
                       <input type="text" maxlength="200" id="userRealName" name="userRealName" value="${fieldValue(bean:person,field:'userRealName')}"/>
                   </td>
               </tr>
-
                        
               	<tr class="prop">
                   <td valign="top" class="name">
@@ -71,10 +58,6 @@
                 </td>
             </tr>
 
-
-                       
-                       
-
 			<tr class="prop">
                 <td valign="top" class="name">
                     <label for="email"><g:message code="person.email" default="Email" />:</label>
@@ -83,7 +66,6 @@
                     <input type="text" maxlength="100" id="email" name="email" value="${fieldValue(bean:person,field:'email')}"/>
                 </td>
             </tr>
-
 
 			<tr class="prop">
                 <td valign="top" class="name">
@@ -94,7 +76,6 @@
                 </td>
             </tr>
 
-
 			<tr class="prop">
                 <td valign="top" class="name">
                     <label for="blog"><g:message code="person.blog" default="Blog" />:</label>
@@ -103,11 +84,6 @@
                     <input type="text" maxlength="100" id="blog" name="blog" value="${fieldValue(bean:person,field:'blog')}"/>
                 </td>
             </tr>
-
-
-
-
-
 
               <tr class='prop'>
                 <td valign='bottom' class='name'>
