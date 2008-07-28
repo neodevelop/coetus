@@ -1,4 +1,10 @@
+import org.grails.plugins.springsecurity.service.AuthenticateService
+
 class BootStrap {
+	AuthenticateService authenticateService	
+	
+	
+	
 	def init = { servletContext ->
 		
 		if(Authority.count() == 0) {
@@ -33,10 +39,13 @@ class BootStrap {
 			grailsT = new Talk(event:evento, title:"Introduccion a Grails", summary:"Chido", location:"Por alla", status:Status.OPEN)
 			grailsT.save()
 			
-			domingo = new Person(username:"domix",userRealName:"Domingo Suarez", passwd:"pwd", email:"domingo.suarez@gmail.com", company:"Bursatec", bio:"Chido", blog:"http://www.domix.org")
+			String defaultPasword = authenticateService.passwordEncoder("root")
+			println defaultPasword
+			
+			domingo = new Person(username:"domix",userRealName:"Domingo Suarez", passwd:defaultPasword, email:"domingo.suarez@gmail.com", company:"Bursatec", bio:"Chido", blog:"http://www.domix.org")
 			domingo.save()
 			
-			andres = new Person(username:"aalmiray",userRealName:"Andres Almiray", passwd:"pwd", email:"aalmiray@yahoo.com", company:"Oracle", bio:"Chido", blog:"http://www.jroller.com/aalmiray/")
+			andres = new Person(username:"aalmiray",userRealName:"Andres Almiray", passwd:defaultPasword, email:"aalmiray@yahoo.com", company:"Oracle", bio:"Chido", blog:"http://www.jroller.com/aalmiray/")
 			andres.save()
 			
 			compartida.addToSpeakers(andres)
@@ -50,9 +59,9 @@ class BootStrap {
 			grailsT.save()
 			
 			
-			def usr1 = new Person(username:"jkings",userRealName:"Juanelo", passwd:"pwd", email:"reyesmjm@gmail.com", company:"IFE", bio:"Chido", blog:"http://www.reyesmjm.org")
+			def usr1 = new Person(username:"jkings",userRealName:"Juanelo", passwd:defaultPasword, email:"reyesmjm@gmail.com", company:"IFE", bio:"Chido", blog:"http://www.reyesmjm.org")
 			usr1.save()
-			def usr2 = new Person(username:"jordi",userRealName:"Jorge", passwd:"pwd", email:"jorge@gmail.com", company:"IFE", bio:"Chido", blog:"http://www.reyesmjm.org")
+			def usr2 = new Person(username:"jordi",userRealName:"Jorge", passwd:defaultPasword, email:"jorge@gmail.com", company:"IFE", bio:"Chido", blog:"http://www.reyesmjm.org")
 			usr2.save()
 			
 			

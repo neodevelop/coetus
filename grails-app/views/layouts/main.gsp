@@ -34,38 +34,36 @@
 					
 					<div id="secondarycontent">
 
+						<g:currentEvents title="${message(code:'event.currents',default:'Currents Events')}" />
+						
+						<g:myEvents title="${message(code:'event.my',default:'My Events')}" />
+
 						<!-- secondary content start -->
-		
-						<h3><g:message code="event.currents" default="Currents Events" /></h3>
+						<h3><g:meta name="app.name"/>-<g:meta name="app.version"/></h3>
 						<div class="content">
-							<ul class="linklist">
-				              <g:each var="c" in="${Event.findAllByStatus(Status.OPEN)}">
-				                    <li>
-					
-									<a href="<g:createLink controller="event" action="detail" id="${c.id}" />">${c.name}</a>
-					</li>
-				              </g:each>
-				            </ul>
+							Download the 
+							<a href="http://code.google.com/p/coetus/" target="_blank">complete source code</a>
+							to Coetus. Contribute patches and enhancements!
 						</div>
 						
-						
+						<!-- secondary content start -->
 						<h3>Acerca de Nosotros</h3>
 						<div class="content">
 							<img src="${createLinkTo(dir:'images',file:'banner.jpg')}" class="picB" alt="" />
 							<p>Somos los fundadores del portal <strong><a target="_blank" href="http://www.springhispano.org">SpringHispano.org</a></strong>, nos gusta lo que hacemos: desarrollamos software y compartimos nuestras experiencias en este portal...
 							</p>
 						</div>
-<!--			
-						<h3>Controllers</h3>
-						<div class="content">
-							<ul class="linklist">
-							</ul>
-						</div>
--->
-						<!-- secondary content end -->
+						
+						<div style="padding-left: 80px;">
+			      			<a href="http://www.grails.org/" target="_blank">
+			      				<img src="${createLinkTo(dir:'images',file:'grails_button.gif')}" alt="Powered By Grails"/>
+			      			</a>
+			      		</div>
+						
+						
+						
 
 					</div>
-
 
 					<div id="footer">
 						&copy; .: <g:meta name="app.name"/>. <g:meta name="app.version"/> on Grails <g:meta name="app.grails.version"/> By SynergyJ.com - Design by <a target="_blank" href="http://www.nodethirtythree.com/">NodeThirtyThree</a> :.

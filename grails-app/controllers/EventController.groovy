@@ -1,7 +1,25 @@
+import org.springframework.security.context.SecurityContextHolder as SCH
+
 class EventController {
 	def authenticateService
 	
     def scaffold = true
+
+	def myDetail = {
+		def event = Event.get(params.id)
+		if (!event) {
+			flash.message = "event.not.found"
+            flash.args = [params.id]
+            flash.defaultMessage = "Event not found with id {0}"
+			return
+		}
+		
+		def userName = SCH.context.authentication.principal.username
+		def user = Person.findByUsername(userName)
+		def attendees = Attendee.findByPersonAndEvent(user, event)
+		def talksPendingToAttend = Talk.findAllByEvent(event)
+		[event: event, attendee:attendees, talksPendingToAttend:talksPendingToAttend]
+	}
 
 	def detail = {
 		def event = Event.get(params.id)
@@ -9,6 +27,7 @@ class EventController {
 			flash.message = "event.not.found"
             flash.args = [params.id]
             flash.defaultMessage = "Event not found with id {0}"
+			return
 		}
 		[event: event]
 	}
@@ -19,8 +38,7 @@ class EventController {
 			flash.message = "event.not.found"
             flash.args = [params.id]
             flash.defaultMessage = "Event not found with id {0}"
-		} else {
-			/* */
+			return
 		}
 		[event: event]
 	}
@@ -31,6 +49,7 @@ class EventController {
 			flash.message = "event.not.found"
             flash.args = [params.id]
             flash.defaultMessage = "Event not found with id {0}"
+			return
 		} else {
 		}
 		
@@ -54,6 +73,7 @@ class EventController {
 			flash.message = "person.not.found"
             flash.args = [principal.getUserName]
             flash.defaultMessage = "Person not found with name {0}"
+			return
 		} else {
 			println person
 			println event
