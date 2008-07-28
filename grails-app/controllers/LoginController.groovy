@@ -100,7 +100,7 @@ class LoginController {
 	// Denial page (data|view|json) for Ajax access.
 	def deniedAjax = {
 		//this is example:
-		render "{error: 'access denied'}"
+		render "{error: 'accesso denegado'}"
 	}
 
 	/**
@@ -113,10 +113,10 @@ class LoginController {
 		def exception = session[AbstractProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY]
 		if (exception) {
 			if (exception instanceof DisabledException) {
-				msg = "[$username] is disabled."
+				msg = "[$username] esta deshabilitado."
 			}
 			else {
-				msg = "[$username] wrong username/password."
+				msg = "[$username] usuario/contraseña inválidos."
 			}
 		}
 
