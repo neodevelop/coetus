@@ -56,7 +56,7 @@
 						
 						<div style="padding-left: 80px;">
 			      			<a href="http://www.grails.org/" target="_blank">
-			      				<img src="${createLinkTo(dir:'images',file:'grails_button.gif')}" alt="Powered By Grails"/>
+			      				<img src="${createLinkTo(dir:'images',file:'grails_button.gif')}" alt="Powered By Grails" border="0"/>
 			      			</a>
 			      		</div>
 						
