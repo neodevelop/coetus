@@ -29,7 +29,7 @@ class BootStrap {
 			new Requestmap(url:"/myevents/**", configAttribute:"ROLE_USER").save()
 			//new Requestmap(url:"/person/**", configAttribute:"ROLE_ADMIN").save()
 			//new Requestmap(url:"/role/**", configAttribute:"ROLE_ADMIN").save()
-			new Requestmap(url:"/talk/**", configAttribute:"ROLE_ADMIN").save()
+			//new Requestmap(url:"/talk/**", configAttribute:"ROLE_ADMIN").save()
 			//new Requestmap(url:"/user/**", configAttribute:"ROLE_ADMIN").save()
 		}
 				
