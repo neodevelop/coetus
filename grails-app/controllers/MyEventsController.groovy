@@ -1,3 +1,18 @@
+/*
+ * Copyright 2002-2008 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import org.springframework.security.context.SecurityContextHolder as SCH
 
 class MyEventsController {
@@ -21,19 +36,37 @@ class MyEventsController {
 		
 		def userName = SCH.context.authentication.principal.username
 		def user = Person.findByUsername(userName)
-		def attendees = Attendee.findByPersonAndEvent(user, event)
-		def talksPendingToAttend = Talk.findAllByEvent(event)
-		[event: event, attendee:attendees, talksPendingToAttend:talksPendingToAttend]
+		def attendee = Attendee.findByPersonAndEvent(user, event)
+		def talksPendingToAttend = [] //Talk.findAllByEvent(event)
+		event.talks.each() {
+			if(!attendee.talks.contains(it)) {
+				talksPendingToAttend.add(it)
+			}
+		}
+		[event: event, attendee:attendee, talksPendingToAttend:talksPendingToAttend]
 	}
 	
 	def register = {
 		def event = Event.get(params.id)
+		
 		if (!event) {
 			flash.message = "event.not.found"
             flash.args = [params.id]
             flash.defaultMessage = "Event not found with id {0}"
 			return
 		}
+		
+		def userName = SCH.context.authentication.principal.username
+		def user = Person.findByUsername(userName)
+		
+		def attendee = Attendee.findByPersonAndEvent(user, event)
+		if(attendee) {
+			flash.message = "attendee.found"
+            flash.args = [userName, event.name]
+            flash.defaultMessage = "El usuario {0} ya esta registrdo al evento {1}"
+			return
+		}
+		
 		[event: event]
 	}
 	
@@ -86,7 +119,73 @@ class MyEventsController {
 		println attendee
 		attendee.save()
 		
+		redirect(action:"myDetail", id:event.id)
+	}
+	
+	def deleteTalk = {
+		def talk = Talk.get(params.talkId)
+		def event = Event.get(params.eventId)
+		
+		if (!event) {
+			flash.message = "event.not.found"
+            flash.args = [params.id]
+            flash.defaultMessage = "Event not found with id {0}"
+			return
+		}
+		
+		def userName = SCH.context.authentication.principal.username
+		def user = Person.findByUsername(userName)
+		
+		def attendee = Attendee.findByPersonAndEvent(user, event)
+		
+		attendee.removeFromTalks(talk)
+		attendee.save()
+		
+		redirect(action:"myDetail", id:event.id)
+	}
+	
+	def addTalkToAttend = {
+		def event = Event.get(params.id)
+		
+		if (!event) {
+			flash.message = "event.not.found"
+            flash.args = [params.id]
+            flash.defaultMessage = "Event not found with id {0}"
+			return
+		}
+		
+		def userName = SCH.context.authentication.principal.username
+		def user = Person.findByUsername(userName)
+		
+		def attendee = Attendee.findByPersonAndEvent(user, event)
+		
+		println attendee
 		
 		
+		def cc = []
+		
+		params.each{ k, v-> 
+			if(k.startsWith("talk_")) {
+				def t = k.substring(k.lastIndexOf("_") + 1)
+				cc.add(t)
+				println "Encontre charla : " + k
+			}
+		}
+				
+		def tals = []
+		
+		cc.each() {
+			def c = Talk.get(it)
+			println c
+			attendee.addToTalks(c)
+			println "agregue la charla a la asistencia"
+		}
+		
+		attendee.save(flush:true)
+		println attendee
+		println attendee.talks
+		
+		
+		redirect(action:"myDetail", id:event.id)s
 	}
 }

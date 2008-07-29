@@ -23,24 +23,21 @@
 						<g:message code="talk.title" default="Name" />
 						</th>
 						<th scope="col" valign='top' class='name'>
-						<div>
-								<g:message code="talk.attendee" default="Attendee" />
-							</div>
+						<g:message code="delete" default="Delete" />
 						</th>
 	                    </tr>
 
 
 						<g:each var="talk" in="${attendee.talks}">
-							<g:if test="${talk.status == Status.OPEN}">
 								<tr class="prop">
 	                                <td valign="top">
 	                                    ${talk.title}
 	                                </td>
+	
 									<td valign="top">
-	                                    <g:checkBox name='talk_$talk.id'></g:checkBox>
+										<a href="${createLink(action:'deleteTalk',params:[talkId:talk.id,eventId:event.id])}"><g:message code="delete" default="Delete" /></a>
 	                                </td>
 	                            </tr>
-							</g:if>
 						</g:each>
 
 	                </tbody>
@@ -62,7 +59,7 @@
 						</th>
 	                    </tr>
 
-
+						<g:form method="post" >
 						<g:each var="talk" in="${talksPendingToAttend}">
 								<tr class="prop">
 	                                <td valign="top">
@@ -73,12 +70,20 @@
 	                                </td>
 	                            </tr>
 						</g:each>
-
+						<tr class="prop">
+                            <td valign="top">
+                                
+                            </td>
+							<td valign="top">
+                                <input type="hidden" name="id" value="${event?.id}" />
+			                    <span class="button"><g:actionSubmit class="save" action="addTalkToAttend" value="${message(code:'update', 'default':'Update')}" /></span>
+                            </td>
+                        </tr>
+						</g:form>
 	                </tbody>
 	            </table>
+		
 
-				<br />
-				<h3><g:message code="talks.speaker" default="Talks I do" /></h3>
 			</g:if>
 
 			
