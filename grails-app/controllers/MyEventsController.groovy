@@ -119,6 +119,9 @@ class MyEventsController {
 		println attendee
 		attendee.save()
 		
+		flash.message = "registration.successful"
+        flash.defaultMessage = "Your registration is successful"
+		
 		redirect(action:"myDetail", id:event.id)
 	}
 	
