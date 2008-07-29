@@ -18,7 +18,7 @@ dataSource {
 	driverClassName = "com.mysql.jdbc.Driver"
 	dialect = org.hibernate.dialect.MySQLInnoDBDialect
 	username = "root"
-	password = ""
+	password = "root"
 }
 hibernate {
     cache.use_second_level_cache=true
@@ -42,6 +42,8 @@ environments {
 	}
 	production {
 		dataSource {
+			username = "coetus"
+			password = "r3g1str0"
 			dbCreate = "update"
 			url = "jdbc:mysql://localhost:3306/coetus_prod"
 		}
