@@ -56,6 +56,13 @@ class MyEventsController {
 			return
 		}
 		
+		if(event.status != Status.OPEN) {
+			flash.message = "event.not.open"
+            flash.args = [event.status]
+            flash.defaultMessage = "Can not register in a non open event. The event status is {0}"
+			return
+		}
+		
 		def userName = SCH.context.authentication.principal.username
 		def user = Person.findByUsername(userName)
 		
