@@ -5,13 +5,14 @@
 	</head>
 	<body>
 		<div class="body">
-			<h1><g:message code="event.register" default="choose the talks to which ATTEND" /></h1>
-			<br />
+			
 			<g:if test="${flash.message}">
 				<div class="message"><g:message code="${flash.message}" args="${flash.args}" default="${flash.defaultMessage}" /></div>
 			</g:if>
 			
 			<g:if test="${event != null}">
+				<h1><g:message code="event.register" default="choose the talks to which ATTEND" /></h1>
+				<br />
 				<g:form method="post" >
 					<g:render template="/event/eventDetail"/>
 					<br />
