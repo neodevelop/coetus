@@ -33,7 +33,7 @@ security {
 	algorithm = 'MD5' 
 	//use Base64 text ( true or false )
 	encodeHashAsBase64 = false
-	errorPage = null
+	errorPage = "/nopermission.gsp"
 
 	/** login user domain class name and fields */
 	loginUserDomainClass = "Person"
@@ -85,11 +85,11 @@ security {
 	 * grails generate-registration.
 	 */
 	useMail = false
-	//mailHost = 'localhost'
+	//mailHost = 'mail.gentejava.org'
 	//mailUsername = 'user@localhost'
 	//mailPassword = 'sungod'
 	//mailProtocol = 'smtp'
-	//mailFrom = 'user@localhost'
+	//mailFrom = 'domingo.suarez@gmail.com'
 
 	/** AJAX request header */
 	//ajaxHeader = 'X-Requested-With'

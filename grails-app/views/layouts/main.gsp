@@ -43,7 +43,8 @@
 						<div class="content">
 							Download the 
 							<a href="http://code.google.com/p/coetus/" target="_blank">complete source code</a>
-							to Coetus. Contribute patches and enhancements!
+							to Coetus. Contribute patches and enhancements! <br/>
+							<script type="text/javascript" src="http://www.ohloh.net/projects/15794/widgets/project_thin_badge"></script>
 						</div>
 						
 						<!-- secondary content start -->
