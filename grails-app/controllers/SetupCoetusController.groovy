@@ -18,7 +18,6 @@ class SetupCoetusController {
 		if(Authority.count() == 0) {
 			new Authority(description:"Usuario del Sistema", authority:"ROLE_USER").save()
 			new Authority(description:"Administrador del Sistema", authority:"ROLE_ADMIN").save()
-			new Authority(description:"Administrador del Sistema", authority:"ROLE_ADMINISTRATOR").save()
 			new Authority(description:"Orador", authority:"ROLE_SPEAKER").save()
 		}
 		
