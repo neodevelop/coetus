@@ -18,6 +18,7 @@ import org.springframework.security.context.SecurityContextHolder as SCH
 import org.codehaus.groovy.grails.plugins.springsecurity.AuthorizeTools
 
 class EventTagLib {
+	static namespace = "events"
 	
 	private boolean isAuthenticated() {
 		def authPrincipal = SCH?.context?.authentication?.principal
