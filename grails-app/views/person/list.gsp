@@ -26,8 +26,6 @@
                         
                    	        <g:sortableColumn property="company" title="Company" titleKey="person.company" />
                         
-                   	        <g:sortableColumn property="passwd" title="Passwd" titleKey="person.passwd" />
-                        
                    	        <g:sortableColumn property="email" title="Email" titleKey="person.email" />
                         
                         </tr>
@@ -43,8 +41,6 @@
                             <td>${fieldValue(bean:person, field:'userRealName')}</td>
                         
                             <td>${fieldValue(bean:person, field:'company')}</td>
-                        
-                            <td>${fieldValue(bean:person, field:'passwd')}</td>
                         
                             <td>${fieldValue(bean:person, field:'email')}</td>
                         

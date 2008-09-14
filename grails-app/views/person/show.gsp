@@ -5,7 +5,6 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}"><g:message code="home" default="Home" /></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="person.list" default="Person List" /></g:link></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="person.new" default="New Person" /></g:link></span>
         </div>
@@ -17,14 +16,12 @@
             <div class="dialog">
                 <table>
                     <tbody>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.id" default="Id" />:</td>
+						<tr class="prop">
+                            <td valign="top" class="name">Avatar</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:person, field:'id')}</td>
+                            <td valign="top" class="value"><avatar:gravatar email="${fieldValue(bean:person, field:'email')}" size="40" /></td>
                             
                         </tr>
-                    
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="person.username" default="Username" />:</td>
                             
@@ -47,23 +44,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.passwd" default="Passwd" />:</td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean:person, field:'passwd')}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.email" default="Email" />:</td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean:person, field:'email')}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="person.description" default="Description" />:</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean:person, field:'description')}</td>
+                            <td valign="top" class="value">${person?.description?.encodeAsTextile()}</td>
                             
                         </tr>
                     
@@ -73,14 +56,7 @@
                             <td valign="top" class="value">${fieldValue(bean:person, field:'blog')}</td>
                             
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.enabled" default="Enabled" />:</td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean:person, field:'enabled')}</td>
-                            
-                        </tr>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="person.authorities" default="Authorities" />:</td>
                             
@@ -88,30 +64,18 @@
                             
                         </tr>
                     
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.emailShow" default="Email Show" />:</td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean:person, field:'emailShow')}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="person.pass" default="Pass" />:</td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean:person, field:'pass')}</td>
-                            
-                        </tr>
-                    
                     </tbody>
                 </table>
             </div>
-            <div class="buttons">
-                <g:form>
-                    <input type="hidden" name="id" value="${person?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="Edit" value="${message(code:'edit', 'default':'Edit')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" onclick="return confirm('${message(code:'delete.confirm', 'default':'Are you sure?')}');" action="Delete" value="${message(code:'delete', 'default':'Delete')}" /></span>
-                </g:form>
-            </div>
+			<g:ifAllGranted role="ROLE_ADMIN">
+            	<div class="buttons">
+                	<g:form>
+                    	<input type="hidden" name="id" value="${person?.id}" />
+                    	<span class="button"><g:actionSubmit class="edit" action="Edit" value="${message(code:'edit', 'default':'Edit')}" /></span>
+                    	<span class="button"><g:actionSubmit class="delete" onclick="return confirm('${message(code:'delete.confirm', 'default':'Are you sure?')}');" action="Delete" value="${message(code:'delete', 'default':'Delete')}" /></span>
+                	</g:form>
+            	</div>
+			</g:ifAllGranted>
         </div>
     </body>
 </html>
