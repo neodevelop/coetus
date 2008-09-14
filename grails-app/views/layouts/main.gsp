@@ -6,7 +6,7 @@
 		<link rel="shortcut icon" href="${createLinkTo(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 		<script src="http://www.google.com/jsapi"></script>
 		<script>
-			// Load jQuery
+			// Load prototype
 			google.load("prototype", "1.6.0.2");
 		</script>
 		<g:layoutHead />
@@ -33,6 +33,8 @@
 					</div>
 				</div>
 				<div id="primarycontent">
+					<util:checkUsers />
+					
 					<g:layoutBody />
 				</div>
 				<div id="secondarycontent">
