@@ -30,4 +30,6 @@ class Authority {
 		authority(blank: false)
 		description()
 	}
+	
+	String toString() { "${authority}-${description}"}
 }

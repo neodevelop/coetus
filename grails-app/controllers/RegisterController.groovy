@@ -123,11 +123,11 @@ class RegisterController {
 
 		person.userRealName = params.userRealName
 		person.email = params.email
-		if (params.emailShow) {
-			person.emailShow = true
+		if (params.canBeContactedViaEmail) {
+			person.canBeContactedViaEmail = true
 		}
 		else {
-			person.emailShow = false
+			person.canBeContactedViaEmail = false
 		}
 
 		if (person.save()) {
@@ -180,8 +180,7 @@ class RegisterController {
 		def pass = authenticateService.passwordEncoder(params.passwd)
 		person.passwd = pass
 		person.enabled = true
-		person.emailShow = true
-		person.description = ''
+		person.canBeContactedViaEmail = true
 		if (person.save()) {
 			role.addToPeople(person)
 			if (config.security.useMail) {

@@ -29,10 +29,10 @@ class Person {
 	/** MD5 Password */
 	String passwd
 	/** enabled */
-	boolean enabled = true
+	Boolean enabled = true
 
 	String email
-	boolean canBeContactedViaEmail = false
+	Boolean canBeContactedViaEmail = false
 
 	/** description */
 	String description = ''
