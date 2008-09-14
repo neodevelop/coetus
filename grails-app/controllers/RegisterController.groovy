@@ -33,16 +33,17 @@ class RegisterController {
 	 * User Registration Top page
 	 */
 	def index = {
-
+		def person = new Person()
 		//if logon user.
 		if (authenticateService.userDomain()) {
 			log.info("${authenticateService.userDomain()} user hit the register page")
 			redirect(action: 'show')
 			return
+		} else {
+			return [person: person]
 		}
 
 		if (session.id) {
-			def person = new Person()
 			person.properties = params
 			return [person: person]
 		}
