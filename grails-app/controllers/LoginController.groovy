@@ -117,6 +117,10 @@ class LoginController {
 		//this is example:
 		render "{error: 'accesso denegado'}"
 	}
+	
+	def loginAjaxiano = {
+		
+	}
 
 	/**
 	 * login failed
