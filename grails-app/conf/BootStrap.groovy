@@ -17,24 +17,8 @@
 class BootStrap {
 	def init = { servletContext ->
 		
-		if(Authority.count() == 0) {
-			new Authority(description:"Usuario del Sistema", authority:"ROLE_USER").save()
-			new Authority(description:"Administrador del Sistema", authority:"ROLE_ADMIN").save()
-			new Authority(description:"Administrador del Sistema", authority:"ROLE_ADMINISTRATOR").save()
-			new Authority(description:"Orador", authority:"ROLE_SPEAKER").save()
-		}
+	}
+	def destroy = {
 		
-		if(Requestmap.count() == 0) {
-			//new Requestmap(url:"/event/**", configAttribute:"ROLE_ADMIN").save()
-			//new Requestmap(url:"/events/**", configAttribute:"IS_AUTHENTICATED_ANONYMOUSLY").save()
-			new Requestmap(url:"/myevents/**", configAttribute:"ROLE_USER").save()
-			//new Requestmap(url:"/person/**", configAttribute:"ROLE_ADMIN").save()
-			//new Requestmap(url:"/role/**", configAttribute:"ROLE_ADMIN").save()
-			//new Requestmap(url:"/talk/**", configAttribute:"ROLE_ADMIN").save()
-			//new Requestmap(url:"/user/**", configAttribute:"ROLE_ADMIN").save()
-		}
-				
-     }
-     def destroy = {
-     }
+	}
 }
