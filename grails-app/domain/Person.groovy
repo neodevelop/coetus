@@ -32,8 +32,6 @@ class Person {
 	boolean enabled = true
 
 	String email
-	boolean emailShow = false
-	
 	boolean canBeContactedViaEmail = false
 
 	/** description */

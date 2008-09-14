@@ -45,10 +45,6 @@
 					<input type="text" size="42" maxlength="100" id="blog" name="blog" value="${fieldValue(bean:person,field:'blog')}"/>
 				</p>
 				<p>
-                    <label for="canBeContactedViaEmail">Show my email:</label>
-					<g:checkBox name="canBeContactedViaEmail" id="canBeContactedViaEmail" value="${fieldValue(bean:person,field:'emailShow')}" />
-                </p>
-				<p>
                     <label for="canBeContactedViaEmail">Allow people to contact me via email:</label>
 					<g:checkBox name="canBeContactedViaEmail" id="canBeContactedViaEmail" value="${fieldValue(bean:person,field:'canBeContactedViaEmail')}" />
                 </p>
