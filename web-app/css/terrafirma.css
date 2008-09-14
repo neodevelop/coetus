@@ -355,26 +355,6 @@ color: #8C8C73;
 }
 /*************************************************************************************/
 /* Forms */
-input, select, textarea {
-    background-color: #fcfcfc;
-    border: 1px solid #ccc;
-    font: 11px verdana, arial, helvetica, sans-serif;
-    margin: 2px 0;
-    padding: 2px 4px;
-}
-select {
-   padding: 2px 2px 2px 0;
-}
-textarea {
-	width: 250px;
-	height: 150px;
-	vertical-align: top;
-}
-
-input:focus, select:focus, textarea:focus {
-    border: 1px solid #b2d1ff;
-}
-
 .body {
     float: left;
     margin: 0 15px 10px 15px;
@@ -595,6 +575,15 @@ th.desc a {
 
 .box {background:#E5ECF3 none repeat scroll 0% 0%; border:4px solid #d3d3d3; padding:18px; -moz-border-radius:10px; -webkit-border-radius:10px;}
 
+/* FORMS */
+   fieldset {padding:0 1em 1em 1em; margin:1.6em 0;} /* padding-top is margin-top for fieldsets in Opera */
+   legend {padding-left:.8em; padding-right:.8em; *margin-bottom:1.5em;}
+   legend+* {margin-top:1em; *margin-top:0;} /* compensates for the opera margin bug */
+   textarea, input {padding:1px 0.3em 2px; vertical-align:middle;} /*.3em .4em .15em .4em;*/
+   input[type='submit'], input[type='button'] {*padding:0} /* IE 7 button fix */
+   option {padding-top:1px;} /* .4*/
+   button {padding:0.3em 0.5em;}
+   label {color:#150517; font-weight:bold;}
 
 
 
