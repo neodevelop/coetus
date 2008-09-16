@@ -76,6 +76,16 @@
                 	</g:form>
             	</div>
 			</g:ifAllGranted>
+			<!-- 
+			<g:if test="${loggedInUserInfo(field:'username')}">
+            	<div class="buttons">
+                	<g:form>
+                    	<input type="hidden" name="id" value="${person?.id}" />
+                    	<span class="button"><g:actionSubmit class="edit" action="Edit" value="${message(code:'edit', 'default':'Edit')}" /></span>
+                	</g:form>
+            	</div>
+			</g:if>
+			-->
         </div>
     </body>
 </html>

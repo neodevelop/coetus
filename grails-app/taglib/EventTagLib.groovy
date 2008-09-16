@@ -14,16 +14,9 @@
  * limitations under the License.
  */
 
-import org.springframework.security.context.SecurityContextHolder as SCH
-import org.codehaus.groovy.grails.plugins.springsecurity.AuthorizeTools
-
 class EventTagLib {
 	static namespace = "events"
-	
-	private boolean isAuthenticated() {
-		def authPrincipal = SCH?.context?.authentication?.principal
-		return authPrincipal != null && authPrincipal != 'anonymousUser'
-	}
+	def authenticateService
 	
 	def currentEvents = { attrs ->
 		out <<  '<h3>'
@@ -43,13 +36,12 @@ class EventTagLib {
 	}
 	
 	def myEvents = { attrs ->
-		if (isAuthenticated()) {
+		def user = authenticateService.userDomain()
+		if (user) {
 			out <<  '<h3>'
 			out <<  attrs.title
 			out <<  '</h3> <div class="content"> <ul class="linklist">'
 			
-			def userName = SCH.context.authentication.principal.username
-			def user = Person.findByUsername(userName)
 			def attendees = Attendee.findByPerson(user)
 			
 			if(!attendees) {
