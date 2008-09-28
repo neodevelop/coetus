@@ -23,9 +23,10 @@ import org.springframework.security.context.SecurityContextHolder as SCH
  */
 class RegisterController {
 
-	EmailerService emailerService
-	AuthenticateService authenticateService
+	def emailerService
+	def authenticateService
 	def daoAuthenticationProvider
+	def recaptchaService
 
 	def allowedMethods = [save: 'POST', update: 'POST']
 
@@ -163,12 +164,14 @@ class RegisterController {
 			return 
 		}
 
-		if (params.captcha.toUpperCase() != session.captcha) {
-			person.passwd = ''
+		def recaptchaOK = true
+		if (!recaptchaService.verifyAnswer(session, request.getRemoteAddr(), params)) {
+        	recaptchaOK = false
 			flash.message = 'Access code did not match.'
 			render(view: 'index', model: [person: person])
 			return
-		}
+        }
+		        
 
 		if (params.passwd != params.repasswd) {
 			person.passwd = ''
@@ -209,6 +212,8 @@ class RegisterController {
 			def auth = new AuthToken(person.username, params.passwd)
 			def authtoken = daoAuthenticationProvider.authenticate(auth)
 			SCH.context.authentication = authtoken
+			//Recaptcha
+			recaptchaService.cleanUp(session)
 			redirect(uri: '/')
 		}
 		else {
