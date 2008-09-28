@@ -39,6 +39,7 @@ class Person {
 	
 	String company
 	String blog
+	String location
 
 	/** plain password to create a MD5 password */
 	String pass = '[secret]'
@@ -47,6 +48,7 @@ class Person {
 		username(blank: false, unique: true,size:1..30)
 		userRealName(blank: true,size:0..200)
 		company(nullable:true,blank:true,size:0..100)
+		location(nullable:true,blank:true,size:0..200)
 		passwd(blank: false,size:0..300)
 		email(blank:false,email:true,unique:true)
 		description(nullable:true,blank:true,size:0..1000)
@@ -57,6 +59,27 @@ class Person {
 	static mapping = {
 		tablePerHierarchy false
 	}
+	
+	def hasLocation() {
+		return location?.length() > 0;
+	}
+	
+	def mapLocation() {
+		if(hasLocation()) {
+			def l = location.split(",")
+			return ["latitude":l[0], "longitude":l[1]]
+		}
+		return null;
+	}
+	
+	def llatitude() {
+		return mapLocation()["latitude"]
+	}
+	def llongitude() {
+		return mapLocation()["longitude"]
+	}
+	
+	
 	
 	String toString() { "${username} - ${userRealName}" }
 }

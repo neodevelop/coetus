@@ -1,11 +1,15 @@
 <html>
 	<head>
 		<meta name='layout' content='main' />
-		<title>My profile-${me?.userRealName}</title>
+		<title>My profile-${person?.userRealName}</title>
 	</head>
 	<body>
-		<div class="box">
-				
-		</div>
+		<g:render template="../person/personForm" />
+		<g:if test="${person.hasLocation()}">
+			<g:render template="../person/location" />
+		</g:if>
+		
+		
+		
 	</body>
 </html>

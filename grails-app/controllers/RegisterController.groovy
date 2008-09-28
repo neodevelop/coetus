@@ -214,7 +214,7 @@ class RegisterController {
 			SCH.context.authentication = authtoken
 			//Recaptcha
 			recaptchaService.cleanUp(session)
-			redirect(uri: '/')
+			redirect(uri: '/me')
 		}
 		else {
 			person.passwd = ''

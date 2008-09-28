@@ -28,8 +28,12 @@
 		<input type="text" size="42" maxlength="100" id="blog" name="blog" value="${fieldValue(bean:person,field:'blog')}"/>
 	</p>
 	<p>
-        <label for="canBeContactedViaEmail">Allow people to contact me via email:</label>
+        <label for="canBeContactedViaEmail"><g:message code="person.canBeContactedViaEmail" default="Allow people to contact me via email" />:</label>
 		<g:checkBox name="canBeContactedViaEmail" id="canBeContactedViaEmail" value="${fieldValue(bean:person,field:'canBeContactedViaEmail')}" />
+    </p>
+	<p>
+        <label for="location"><g:message code="person.location" default="Location" />:</label>
+		<input type="text" size="42" maxlength="100" id="location" name="location" value="${fieldValue(bean:person,field:'location')}"/>
     </p>
 	<g:ifAllGranted role="ROLE_ADMIN">
 		<p><label for="enabled"><g:message code="person.enabled" default="Enabled" />:</label><br />

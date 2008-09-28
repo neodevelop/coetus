@@ -14,12 +14,16 @@
  * limitations under the License.
  */
 class UrlMappings {
-    static mappings = {
-      "/$controller/$action?/$id?"{
-	      constraints {
-			 // apply constraints here
-		  }
-	  }
-	  "500"(view:'/error')
+	static mappings = {
+		"/$controller/$action?/$id?"{
+			constraints {
+				// apply constraints here
+			}
+		}
+		"/me" {
+			controller = "profile"
+			action = "my"
+		}
+		"500"(view:'/error')
 	}
 }
