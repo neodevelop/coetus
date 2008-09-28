@@ -35,6 +35,10 @@
 				<div id="primarycontent">
 					<util:checkUsers />
 					
+					<resource:googlemaps key="ABQIAAAAVI8tN8ZVK-n0fDPZbAvxyxSZfqRnYxVEt7pMH2xm7ibWPzQotxSFxMF4BAaFB9Wmu78Fr-tZELJp0g" />
+					
+					<richui:googlemaps lat="40.689299" lng="-74.044" />
+					
 					<g:layoutBody />
 				</div>
 				<div id="secondarycontent">
