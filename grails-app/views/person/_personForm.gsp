@@ -46,9 +46,11 @@
 	</g:ifAllGranted>
 	<g:if test="${newRecord}">
 		<p>
-			<label for='code'><g:message code="person.enterCode" default="Enter Code" />: </label><br/>
-			<input type="text" name="captcha" size="8" size="42" />
-	      	<img src="${createLink(controller:'captcha', action:'index')}" align="absmiddle"/>
+			<g:if test="${recaptcha_error}">
+				<div class="message">${recaptcha_error}</div>
+			</g:if>
+
+			 <recaptcha:ifEnabled> <recaptcha:recaptcha /> </recaptcha:ifEnabled>
 		</p>
 	</g:if>
 	
