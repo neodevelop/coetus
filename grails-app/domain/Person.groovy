@@ -45,7 +45,7 @@ class Person {
 
 	static constraints = {
 		username(blank: false, unique: true,size:1..30)
-		userRealName(blank: false,size:1..200)
+		userRealName(blank: true,size:0..200)
 		company(nullable:true,blank:true,size:0..100)
 		passwd(blank: false,size:0..300)
 		email(blank:false,email:true,unique:true)
