@@ -33,6 +33,7 @@ class Person {
 
 	String email
 	Boolean canBeContactedViaEmail = false
+	Boolean notifyMeAttendees = true
 
 	/** description */
 	String description = ''
