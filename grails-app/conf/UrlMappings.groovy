@@ -24,6 +24,10 @@ class UrlMappings {
 			controller = "profile"
 			action = "my"
 		}
+		"/signup" {
+			controller = "register"
+			action = "index"
+		}
 		"500"(view:'/error')
 	}
 }
