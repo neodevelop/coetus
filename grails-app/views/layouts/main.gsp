@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<title>Coetus :: [<g:layoutTitle default="Grails" />]</title>
+		<title>Coetus :: [<g:layoutTitle default="Event Manager" />]</title>
 		<link rel="stylesheet" href="${createLinkTo(dir:'css',file:'terrafirma.css')}" />
 		<link rel="shortcut icon" href="${createLinkTo(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 		<script src="http://www.google.com/jsapi"></script>
