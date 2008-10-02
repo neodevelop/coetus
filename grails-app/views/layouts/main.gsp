@@ -24,7 +24,16 @@
 						<li class="first"><a class="home" href="${createLinkTo(dir:'')}"><g:message code="home" default="Home" /></a></li>
 						<g:isNotLoggedIn><li><a href="<g:createLink controller="register" />"><g:message code="signin" default="Sign in" /></a></li></g:isNotLoggedIn>
 						<g:isNotLoggedIn><li><a href="<g:createLink controller="login" />"><g:message code="login" default="Login" /></a></li></g:isNotLoggedIn>
-						<g:isLoggedIn><li><a href="<g:createLink controller="logout" />"><g:message code="logout" default="logout" /></a></li></g:isLoggedIn>
+						
+						<g:isLoggedIn>
+							
+							
+							<g:ifAllGranted role="ROLE_MANAGER">
+								<li><a href="<g:createLink controller="event" action="new" />"><g:message code="event.create" default="Create Event" /></a></li>
+							</g:ifAllGranted>
+							
+							<li><a href="<g:createLink controller="logout" />"><g:message code="logout" default="logout" /></a></li>
+						</g:isLoggedIn>
 					</ul>
 					<div id="date">
 						<g:message code="welcome" default="Welcome" />

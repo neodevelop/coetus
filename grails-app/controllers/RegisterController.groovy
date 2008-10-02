@@ -38,7 +38,7 @@ class RegisterController {
 		//if logon user.
 		if (authenticateService.userDomain()) {
 			log.info("${authenticateService.userDomain()} user hit the register page")
-			redirect(action: 'show')
+			redirect(uri: '/me')
 			return
 		} else {
 			return [person: person]
@@ -152,6 +152,7 @@ class RegisterController {
 
 		def person = new Person()
 		person.properties = params
+		def manager = params.manager
 
 		def config = authenticateService.securityConfig
 		def defaultRole = config.security.defaultRole
@@ -186,6 +187,16 @@ class RegisterController {
 		person.canBeContactedViaEmail = true
 		if (person.save()) {
 			role.addToPeople(person)
+			
+			if(manager) {
+				def roleManager = Authority.findByAuthority("ROLE_MANAGER")
+				if(roleManager) {
+					roleManager.addToPeople(person)
+				}
+			}
+			
+			
+			
 			if (config.security.useMail) {
 				String emailContent = """You have signed up for an account at:
 

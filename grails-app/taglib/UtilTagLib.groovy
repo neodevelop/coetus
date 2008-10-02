@@ -17,6 +17,7 @@ class UtilTagLib {
 			new Authority(description:"Usuario del Sistema", authority:"ROLE_USER").save()
 			new Authority(description:"Administrador del Sistema", authority:"ROLE_ADMIN").save()
 			new Authority(description:"Orador", authority:"ROLE_SPEAKER").save()
+			new Authority(description:"Administrador de eventos", authority:"ROLE_MANAGER").save()
 			log.debug('Roles created')
 		}
 	}

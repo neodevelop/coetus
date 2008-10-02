@@ -31,6 +31,12 @@
         <label for="canBeContactedViaEmail"><g:message code="person.canBeContactedViaEmail" default="Allow people to contact me via email" />:</label>
 		<g:checkBox name="canBeContactedViaEmail" id="canBeContactedViaEmail" value="${fieldValue(bean:person,field:'canBeContactedViaEmail')}" />
     </p>
+	<g:if test="${newRecord}">
+		<p>
+	        <label for="manager"><g:message code="person.manager" default="Do you wish register as Event Manager?" />:</label>
+			<g:checkBox name="manager" id="manager" />
+	    </p>
+	</g:if>
 	<p>
         <label for="location"><g:message code="person.location" default="Location" />:</label>
 		<input type="text" size="42" maxlength="100" id="location" name="location" value="${fieldValue(bean:person,field:'location')}"/>
