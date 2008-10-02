@@ -36,8 +36,6 @@
 				<div id="primarycontent">
 					<util:checkUsers />
 					
-					
-					
 					<g:layoutBody />
 				</div>
 				<div id="secondarycontent">
@@ -47,7 +45,7 @@
 					<h3><g:meta name="app.name"/>-<g:meta name="app.version"/></h3>
 					<div class="content">
 						Download the  <a href="http://code.google.com/p/coetus/" target="_blank">complete source code</a> to Coetus. Contribute patches and enhancements! <br/>
-						<script type="text/javascript" src="http://www.ohloh.net/projects/15794/widgets/project_thin_badge"></script>
+						<ohlohWidget:thinBadge idOhloh="15794" />
 					</div>
 					<!-- secondary content start -->
 					<h3>Acerca de Nosotros</h3>

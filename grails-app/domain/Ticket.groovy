@@ -13,28 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-class Event {
+class Ticket implements Comparable {
+	Event event
 	String name
+	BigDecimal price
+	Currency currency
+	Boolean free
+	Long quantityAvailable
+	Date startSelling
+	Date endSelling
 	String description
-	Date startTime = new Date()
-	Date endTime = new Date()
-	Boolean allDay = false
-	String location
-	Boolean necessaryRegistry = false
-	Status status = Status.PLANNING
-	Boolean showStatus = true
-	SortedSet tickets
-	static hasMany = [talks:Talk, tickets:Ticket]
 	
 	static constraints = {
-		name(blank:false,size:5..200)
-		description(blank:false,size:5..2000)
-		startTime(nullable:false)
-		endTime(nullable:false)
-		allDay(nullable:false)
-		location(blank:false,size:5..200)
-		necessaryRegistry(nullable:false)
+		name(blank:false,nullable:false,size:1..30)
+		price(nullable:false)
+		currency(nullable:false)
+		free()
+		quantityAvailable(nullable:false)
+		startSelling()
+		endSelling()
+		description(blank:true,nullable:true,size:0..700)
 	}
 	
-	String toString() { "${name}" }
+	/**
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	public int compareTo(Object o) {
+		return 0;
+    }
+
 }
