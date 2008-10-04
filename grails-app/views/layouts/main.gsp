@@ -45,7 +45,11 @@
 					</div>
 				</div>
 				<div id="primarycontent">
-					<util:checkUsers />
+					<g:if test="${flash.message}">
+		            	<div class="message"><g:message code="${flash.message}" args="${flash.args}" default="${flash.defaultMessage}" /></div>
+		            </g:if>
+					<div class="message"><util:checkUsers /></div>
+					
 					
 					<g:layoutBody />
 				</div>

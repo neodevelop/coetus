@@ -12,9 +12,6 @@
         </g:ifAllGranted>
         <div class="body">
             <h1><g:message code="event.show" default="Show Event" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message"><g:message code="${flash.message}" args="${flash.args}" default="${flash.defaultMessage}" /></div>
-            </g:if>
             <g:render template="eventDetail"/>
            	<g:ifAllGranted role="ROLE_ADMIN">
 				<g:render template="../util/crudToolBar" model="['entity':event]"/>
