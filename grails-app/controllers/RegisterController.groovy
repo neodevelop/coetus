@@ -23,7 +23,7 @@ import org.springframework.security.context.SecurityContextHolder as SCH
  */
 class RegisterController {
 
-	def emailerService
+	def mailService
 	def authenticateService
 	def daoAuthenticationProvider
 	def recaptchaService
@@ -146,7 +146,7 @@ class RegisterController {
 
 		if (authenticateService.userDomain() != null) {
 			log.info("${authenticateService.userDomain()} user hit the register page")
-			redirect(action: 'show')
+			redirect(uri: '/me')
 			return
 		}
 
@@ -194,8 +194,6 @@ class RegisterController {
 					roleManager.addToPeople(person)
 				}
 			}
-			
-			
 			
 			if (config.security.useMail) {
 				String emailContent = """You have signed up for an account at:

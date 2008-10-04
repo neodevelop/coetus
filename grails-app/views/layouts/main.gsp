@@ -29,7 +29,7 @@
 							
 							
 							<g:ifAllGranted role="ROLE_MANAGER">
-								<li><a href="<g:createLink controller="event" action="new" />"><g:message code="event.create" default="Create Event" /></a></li>
+								<li><a href="<g:createLink controller="create" action="event" />"><g:message code="event.create" default="Create Event" /></a></li>
 							</g:ifAllGranted>
 							
 							<li><a href="<g:createLink controller="logout" />"><g:message code="logout" default="logout" /></a></li>
@@ -67,14 +67,16 @@
 						</p>
 					</div>
 					<div style="padding-left: 80px;">
-						<a href="http://www.grails.org/" target="_blank">
+						<a href="http://grails.org/" target="_blank">
 							<img src="${createLinkTo(dir:'images',file:'grails_button.gif')}" alt="Powered By Grails" border="0"/>
 						</a>
 					</div>
+					<!-- 
 					<div style="padding-left: 80px;">
 						<g:remoteLink controller="attendee" action="testAjax" update="message">Delete Book</g:remoteLink>
 						<div id="message"></div>
 					</div>
+					-->
 				</div>
 				<div id="footer">
 					&copy; .: <g:meta name="app.name"/>. <g:meta name="app.version"/> on <a href="http://grails.org" target="_blank">Grails</a> <g:meta name="app.grails.version"/> By SynergyJ.com - Design by <a target="_blank" href="http://www.nodethirtythree.com/">NodeThirtyThree</a> :.

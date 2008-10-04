@@ -5,8 +5,10 @@
 	</head>
 	<body>
 		<g:render template="../person/personForm" />
+		<!-- 
 		<g:if test="${person?.hasLocation()}">
 			<g:render template="../person/location" />
 		</g:if>
+		-->
 	</body>
 </html>

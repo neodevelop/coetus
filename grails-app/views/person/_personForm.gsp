@@ -1,3 +1,4 @@
+<resource:richTextEditor />
 <div class="box">
 	<p>
 		<label for="username"><g:message code="person.username" default="Username" />:</label>:<br/>
@@ -8,8 +9,8 @@
 		<input type="text" size="42" maxlength="200" id="userRealName" name="userRealName" value="${fieldValue(bean:person,field:'userRealName')}"/>
 	</p>
 	<p>
-		<p><label for="description"><g:message code="person.description" default="Description" /> (<a href="http://hobix.com/textile" target="_blank">Textile enabled</a>):</label><br />
-		<textarea rows="5" cols="40" name="description">${fieldValue(bean:person, field:'description')}</textarea></p>
+		<p><label for="description"><g:message code="person.description" default="Description" />:</label><br />
+		<richui:richTextEditor name="description" value="${person?.description}" width="425" />
 	</p>
 	<g:if test="${newRecord}">
 		<g:render template="../person/personPasswordForm" />

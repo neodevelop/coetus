@@ -24,16 +24,17 @@ class Event {
 	Status status = Status.PLANNING
 	Boolean showStatus = true
 	SortedSet tickets
+	Person createdBy
 	static hasMany = [talks:Talk, tickets:Ticket]
 	
 	static constraints = {
-		name(blank:false,size:5..200)
-		description(blank:false,size:5..2000)
-		startTime(nullable:false)
-		endTime(nullable:false)
-		allDay(nullable:false)
-		location(blank:false,size:5..200)
-		necessaryRegistry(nullable:false)
+		name(blank:false,size:0..200)
+		description(blank:true,size:0..5000)
+		startTime(nullable:true)
+		endTime(nullable:true)
+		allDay(nullable:true)
+		location(blank:true,size:0..1000)
+		necessaryRegistry(nullable:true)
 	}
 	
 	String toString() { "${name}" }

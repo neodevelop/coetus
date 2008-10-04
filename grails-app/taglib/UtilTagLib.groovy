@@ -7,9 +7,13 @@ class UtilTagLib {
 		if(Person.count() == 0) {
 			out << 'Coetu no esta protegido, debes agregar a un suario, hacerlo adiministrador y proteger el sitio.'
 		}
-		
-		
-		
+	}
+	
+	def verifyUserManager = { attrs, body ->
+		def event = attrs.event
+		if(event.createdBy.id==authenticateService.userDomain().id) {
+			out << body()
+		}
 	}
 	
 	private void checkDefaultRole() {
