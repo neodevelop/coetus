@@ -5,7 +5,9 @@ class UtilTagLib {
 	def checkUsers = { attrs ->
 		checkDefaultRole()
 		if(Person.count() == 0) {
-			out << 'Coetu no esta protegido, debes agregar a un suario, hacerlo adiministrador y proteger el sitio.'
+			out << """<div class="message">"""
+			out << 'Coetus no esta protegido, debes agregar a un usuario, hacerlo Administrador y proteger el sitio.'
+			out << "</div>"
 		}
 	}
 	
