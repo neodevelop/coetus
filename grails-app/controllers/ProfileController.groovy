@@ -21,4 +21,28 @@ class ProfileController {
 	def my = {
 		[person:authenticateService.userDomain()]
 	}
+	def update = {
+        def person = Person.get( params.id )
+		println(person)
+        if(person) {
+            person.properties = params
+			println(person)
+            if(!person.hasErrors() && person.save(flush:true)) {
+				println(person)
+                flash.message = "Usuario : ${person.username} actualizado ...!!!"
+                flash.args = [params.id]
+                flash.defaultMessage = "Usuario : ${person.username} actualizado ...!!!"
+                render(view:'my',model:[person:person])
+            }
+            else {
+                render(view:'my',model:[person:person])
+            }
+        }
+        else {
+            flash.message = "person.not.found"
+            flash.args = [params.id]
+            flash.defaultMessage = "Person not found with id ${params.id}"
+            redirect(action:my, params: params)
+        }
+    }
 }
