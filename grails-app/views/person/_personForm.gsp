@@ -2,6 +2,7 @@
 <div class="box">
 	<p>
 		<label for="username"><g:message code="person.username" default="Username" />:</label>:<br/>
+		<input type="hidden" id="id" name="id" value="${fieldValue(bean:person,field:'id')}" />
 		<input type="text" size="42" maxlength="30" id="username" name="username" value="${fieldValue(bean:person,field:'username')}"/>
 	</p>
 	<p>
@@ -64,7 +65,4 @@
 			 <recaptcha:ifEnabled> <recaptcha:recaptcha /> </recaptcha:ifEnabled>
 		</p>
 	</g:if>
-	
-	
-	
 </div>
