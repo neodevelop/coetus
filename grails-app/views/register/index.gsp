@@ -5,6 +5,7 @@
 	</head>
 	<body>
 		<h1><g:message code="person.create" default="Create Person" /></h1>
+		<br/>
 		<g:if test="${flash.message}">
 			<div class="message">${flash.message}</div>
 		</g:if>
