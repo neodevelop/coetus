@@ -18,7 +18,7 @@
 	</g:if>
 	<p>
 		<label for="email"><g:message code="person.email" default="Email" />:</label><br/>
-		<input type="text" size="42" maxlength="100" id="email" name="email" value="${fieldValue(bean:person,field:'email')}"/>
+		<input type="text" size="42" maxlength="100" id="email" name="email" value="${fieldValue(bean:person,field:'email')}"/><br/>
 		<span class="meta-info">Associate this email address with an avatar for free at <a href="http://gravatar.com/" target="_blank">gravatar.com</a></span>
 	</p>
 	<p>
@@ -40,7 +40,7 @@
 	    </p>
 	</g:if>
 	<p>
-        <label for="location"><g:message code="person.location" default="Location" />:</label>
+        <label for="location"><g:message code="person.location" default="Location" />:</label><br/>
 		<input type="text" size="42" maxlength="100" id="location" name="location" value="${fieldValue(bean:person,field:'location')}"/>
     </p>
 	<g:ifAllGranted role="ROLE_ADMIN">
