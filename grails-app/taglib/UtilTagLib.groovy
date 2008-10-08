@@ -13,7 +13,7 @@ class UtilTagLib {
 	
 	def verifyUserManager = { attrs, body ->
 		def event = attrs.event
-		if(event.createdBy.id==authenticateService.userDomain().id) {
+		if(event?.createdBy?.id==authenticateService?.userDomain()?.id) {
 			out << body()
 		}
 	}
@@ -26,5 +26,26 @@ class UtilTagLib {
 			new Authority(description:"Administrador de eventos", authority:"ROLE_MANAGER").save()
 			log.debug('Roles created')
 		}
+	}
+	def managedCheckBox = { attrs ->
+		def value = attrs.remove('value')
+		def name = attrs.remove('name')
+		def disabled = attrs.remove('disabled')
+		if(!value) value = false
+		out << """ <input type="hidden" """
+		out << """name="_${name}" />"""
+		out << """ <input type="checkbox" """
+		out << """name="${name}" """
+		if(value) {
+			out << 'checked="checked" '
+		}
+		if(disabled != null && disabled == 'true') {
+			out << 'disabled="disabled" '
+		}
+		out << """value="true" """
+		// process remaining attributes
+		//outputAttributes(attrs)
+		// close the tag, with no body
+		out << ' />'
 	}
 }
