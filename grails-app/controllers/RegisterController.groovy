@@ -146,8 +146,9 @@ class RegisterController {
 
 		if (authenticateService.userDomain() != null) {
 			log.info("${authenticateService.userDomain()} user hit the register page")
-			redirect(uri: '/me')
-			return
+			//redirect(uri: '/me')
+			//return
+			redirect(controller:"person",action:"show",params:[person:authenticateService.userDomain()])
 		}
 
 		def person = new Person()
@@ -223,7 +224,9 @@ class RegisterController {
 			SCH.context.authentication = authtoken
 			//Recaptcha
 			recaptchaService.cleanUp(session)
-			redirect(uri: '/me')
+			//redirect(uri: '/me')
+			flash.message = 'Ya estás registrado, ahora ya puedes unirte a un evento :D !!!'
+			redirect(controller:"person",action:"show",id:person.id)
 		}
 		else {
 			person.passwd = ''
