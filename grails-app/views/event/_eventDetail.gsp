@@ -47,7 +47,7 @@
 	            <tr class="prop">
 	                <td valign="top" class="name"><label><g:message code="event.allDay" default="All Day" />:</label></td>
 
-	                <td valign="top" class="value"><g:checkBox name="showStatus" value="${event?.allDay}" /></td>
+	                <td valign="top" class="value"><util:managedCheckBox disabled="true" name="showStatus" value="${event?.allDay}" /> </td>
 
 	            </tr>
 
@@ -61,7 +61,7 @@
 	            <tr class="prop">
 	                <td valign="top" class="name"><label><g:message code="event.necessaryRegistry" default="Necessary Registry" />:</label></td>
 
-	                <td valign="top" class="value"><g:checkBox name="showStatus" value="${event?.necessaryRegistry}" /></td>
+	                <td valign="top" class="value"><util:managedCheckBox disabled="true" name="showStatus" value="${event?.necessaryRegistry}" /></td>
 
 	            </tr>
 	
