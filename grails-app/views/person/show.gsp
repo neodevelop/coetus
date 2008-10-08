@@ -19,7 +19,7 @@
 						<tr class="prop">
                             <td valign="top" class="name"><g:message code="person.avatar" default="Avatar" /></td>
                             
-                            <td valign="top" class="value"><avatar:gravatar email="${fieldValue(bean:person, field:'email')}" size="40" /></td>
+                            <td valign="top" class="value"><avatar:gravatar email="${fieldValue(bean:person, field:'email')}" size="80" /></td>
                             
                         </tr>
                         <tr class="prop">
