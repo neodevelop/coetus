@@ -32,7 +32,7 @@ class ProfileController {
                 flash.message = "Usuario : ${person.username} actualizado ...!!!"
                 flash.args = [params.id]
                 flash.defaultMessage = "Usuario : ${person.username} actualizado ...!!!"
-                render(view:'my',model:[person:person])
+                redirect(controller:"person",action:"show",id:person.id)
             }
             else {
                 render(view:'my',model:[person:person])
