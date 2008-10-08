@@ -4,15 +4,20 @@
         <title><g:message code="person.show" default="Show Person" /></title>
     </head>
     <body>
+		<!--
         <div class="nav">
             <span class="menuButton"><g:link class="list" action="list"><g:message code="person.list" default="Person List" /></g:link></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="person.new" default="New Person" /></g:link></span>
         </div>
+		-->
         <div class="body">
             <h1><g:message code="person.show" default="Show Person" /></h1>
+			<br/>
+			<!--
             <g:if test="${flash.message}">
             <div class="message"><g:message code="${flash.message}" args="${flash.args}" default="${flash.defaultMessage}" /></div>
             </g:if>
+			-->
             <div class="dialog">
                 <table>
                     <tbody>
