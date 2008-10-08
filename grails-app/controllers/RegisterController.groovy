@@ -225,7 +225,7 @@ class RegisterController {
 			//Recaptcha
 			recaptchaService.cleanUp(session)
 			//redirect(uri: '/me')
-			flash.message = 'Ya estás registrado, ahora ya puedes unirte a un evento :D !!!'
+			flash.message = "register.ready"
 			redirect(controller:"person",action:"show",id:person.id)
 		}
 		else {
