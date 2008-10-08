@@ -39,10 +39,12 @@
 			<g:checkBox name="manager" id="manager" />
 	    </p>
 	</g:if>
+	<!-- 
 	<p>
         <label for="location"><g:message code="person.location" default="Location" />:</label><br/>
 		<input type="text" size="42" maxlength="100" id="location" name="location" value="${fieldValue(bean:person,field:'location')}"/>
     </p>
+	-->
 	<g:ifAllGranted role="ROLE_ADMIN">
 		<p><label for="enabled"><g:message code="person.enabled" default="Enabled" />:</label><br />
 		<g:checkBox name="enabled" value="${person?.enabled}" ></g:checkBox></p>
