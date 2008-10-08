@@ -85,5 +85,9 @@ log4j {
 
 
 
+avatarPlugin {
+	defaultGravatarUrl="""http://www.ohloh.net/images/anon/anon80.gif"""
+	gravatarRating="G"
+}
 
 //log4j.logger.org.springframework.security='on,stdout'
