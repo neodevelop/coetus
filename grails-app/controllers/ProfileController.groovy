@@ -19,7 +19,7 @@ class ProfileController {
 		redirect(action: my, params: params)
 	}
 	def my = {
-		[person:authenticateService.userDomain()]
+		[person:Person.get(authenticateService.userDomain()?.id)]
 	}
 	def update = {
         def person = Person.get( params.id )
@@ -29,8 +29,8 @@ class ProfileController {
 			//println(person)
             if(!person.hasErrors() && person.save(flush:true)) {
 				//println(person)
-                flash.message = "Usuario : ${person.username} actualizado ...!!!"
-                flash.args = [params.id]
+                flash.message = "person.info.updated"
+                flash.args = [person.username]
                 flash.defaultMessage = "Usuario : ${person.username} actualizado ...!!!"
                 redirect(controller:"person",action:"show",id:person.id)
             }
