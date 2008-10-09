@@ -48,4 +48,7 @@ class UtilTagLib {
 		// close the tag, with no body
 		out << ' />'
 	}
+	def dateFormat = { attrs ->
+	   out << new java.text.SimpleDateFormat(attrs.format).format(attrs.value)
+	}
 }
