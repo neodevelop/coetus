@@ -26,6 +26,9 @@
 						<input type='checkbox' class='chk' id='remember_me' name='_spring_security_remember_me'>
 					</p>
 					<p>
+						<g:link controller="register" action="forgot">¿Olvidaste tu password?</g:link>
+					</p>
+					<p>
 						<input type='submit' value='Login' />
 					</p>
 				</form>
