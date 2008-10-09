@@ -10,21 +10,10 @@
         </div>
         <div class="body">
             <h1><g:message code="event.edit" default="Edit Event" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message"><g:message code="${flash.message}" args="${flash.args}" default="${flash.defaultMessage}" /></div>
-            </g:if>
-            <g:hasErrors bean="${event}">
-            <div class="errors">
-                <g:renderErrors bean="${event}" as="list" />
-            </div>
-            </g:hasErrors>
+            <g:render template="../util/showErrors" model="['bean':event]"/>
             <g:form method="post" >
-                <input type="hidden" name="id" value="${event?.id}" />
                 <g:render template="../event/eventForm" />
-                <div class="buttons">
-                    <span class="button"><g:actionSubmit class="save" action="Update" value="${message(code:'update', 'default':'Update')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" onclick="return confirm('${message(code:'delete.confirm', 'default':'Are you sure?')}');" action="Delete" value="${message(code:'delete', 'default':'Delete')}" /></span>
-                </div>
+                <g:render template="../util/ud" model="['bean':event]"/>
             </g:form>
         </div>
     </body>
