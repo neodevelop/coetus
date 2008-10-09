@@ -38,4 +38,23 @@ class Event {
 	}
 	
 	String toString() { "${name}" }
+	
+	def hasLocation() {
+		return location?.length() > 0;
+	}
+	
+	def mapLocation() {
+		if(hasLocation()) {
+			def l = location.split(",")
+			return ["latitude":l[0], "longitude":l[1]]
+		}
+		return null;
+	}
+	
+	def llatitude() {
+		return mapLocation()["latitude"]
+	}
+	def llongitude() {
+		return mapLocation()["longitude"]
+	}
 }
