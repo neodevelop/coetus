@@ -40,6 +40,16 @@
 			<g:select  from="${Status?.values()}" value="${event?.status}" name="status" ></g:select>
 		</p>
 	</g:ifAllGranted>
+	<g:ifNotGranted role="ROLE_ADMIN">
+		<g:ifAllGranted role="ROLE_MANAGER">
+				<util:verifyUserManager event="${event}">
+					<p>
+						<label for="status"><g:message code="event.status" default="Status" />:</label><br/>
+						<g:select  from="${Status?.values()}" value="${event?.status}" name="status" ></g:select>
+					</p>
+				</util:verifyUserManager>
+		</g:ifAllGranted>
+	</g:ifNotGranted>
 	
 	<p>
 		<br/>
