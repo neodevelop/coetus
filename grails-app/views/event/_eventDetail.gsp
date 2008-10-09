@@ -10,13 +10,6 @@
 	            </tr>
 
 	            <tr class="prop">
-	                <td valign="top" class="name"><label><g:message code="event.id" default="Id" />:</label></td>
-
-	                <td valign="top" class="value">${event?.id}</td>
-
-	            </tr>
-
-	            <tr class="prop">
 	                <td valign="top" class="name"><label><g:message code="event.name" default="Name" />:</label></td>
 
 	                <td valign="top" class="value">${event?.name}</td>
@@ -52,13 +45,6 @@
 	            </tr>
 
 	            <tr class="prop">
-	                <td valign="top" class="name"><label><g:message code="event.location" default="Location" />:</label></td>
-
-	                <td valign="top" class="value">${event?.location}</td>
-
-	            </tr>
-
-	            <tr class="prop">
 	                <td valign="top" class="name"><label><g:message code="event.necessaryRegistry" default="Necessary Registry" />:</label></td>
 
 	                <td valign="top" class="value"><util:managedCheckBox disabled="true" name="showStatus" value="${event?.necessaryRegistry}" /></td>
@@ -76,6 +62,8 @@
 	            
 
 	        </tbody>
-	    </table>
+	    </table><br/>
+		<resource:googlemaps key="ABQIAAAAVI8tN8ZVK-n0fDPZbAvxyxSZfqRnYxVEt7pMH2xm7ibWPzQotxSFxMF4BAaFB9Wmu78Fr-tZELJp0g" />
+		<richui:googlemaps lat="${event?.llatitude()}" lng="-${event?.llongitude()}" />
 	</div>
 </g:if>
