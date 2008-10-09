@@ -34,11 +34,12 @@
 		<label for="showStatus"><g:message code="event.showStatus" default="Show Status" />:</label>
 		<g:checkBox name="showStatus" value="${event?.showStatus}" ></g:checkBox>
 	</p>
+	<p>
+		<label for="status"><g:message code="event.status" default="Status" />:</label><br/>
+		<g:select  from="${Status?.values()}" value="${event?.status}" name="status" ></g:select>
+	</p>
 	<g:ifAllGranted role="ROLE_ADMIN">
-		<p>
-			<label for="status"><g:message code="event.status" default="Status" />:</label><br/>
-			<g:select  from="${Status?.values()}" value="${event?.status}" name="status" ></g:select>
-		</p>
+		
 	</g:ifAllGranted>
 	<g:ifNotGranted role="ROLE_ADMIN">
 		<g:ifAllGranted role="ROLE_MANAGER">

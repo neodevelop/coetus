@@ -24,6 +24,8 @@ class EventService {
 		}
 		if(event.save()) {
 			log.info "Guarde un evento"
+		} else {
+			throw new RuntimeException("")
 		}
 	}
 	

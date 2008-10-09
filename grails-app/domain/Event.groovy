@@ -29,7 +29,7 @@ class Event {
 	
 	static constraints = {
 		name(blank:false,size:0..200)
-		description(blank:true,size:0..5000)
+		description(blank:true,size:0..15000)
 		startTime(nullable:true)
 		endTime(nullable:true)
 		allDay(nullable:true)

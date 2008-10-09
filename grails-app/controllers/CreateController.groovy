@@ -24,7 +24,16 @@ class CreateController {
 		def event = new Event()
 		event.properties = params
 		event.createdBy = Person.get(authenticateService.userDomain().id)
-		eventService.create event
-		redirect(controller:"event", action:"show", id:event.id)
+		try {
+			eventService.create event
+			redirect(controller:"event", action:"show", id:event.id)
+		} catch (Throwable t) {
+			flash.message = 'Error en el registro del evento'
+			render(view: 'event', model: [event: event])
+			//redirect(controller:"create", action:"saveEvent", event:event)
+			//return
+		}
+		
+		
 	}
 }
