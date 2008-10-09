@@ -233,4 +233,23 @@ class RegisterController {
 			render(view: 'index', model: [person: person])
 		}
 	}
+	
+	def forgot = {
+		
+	}
+	def recovery = {
+		Person person = Person.findByEmail(params.email)
+		if(person != null){
+			//Regenerate pass & save new pass
+			//Send new pass
+			flash.message="person.passwd.sendit"
+			flash.defaultMessage="It has send it a new password in the email provided..."
+			render(view:'forgot')
+		}else{
+			person = new Person()
+			person.errors.rejectValue('email','person.email.notFound')
+			render(view:'forgot',model:[person:person])
+		}
+		
+	}
 }
