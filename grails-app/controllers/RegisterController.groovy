@@ -18,6 +18,8 @@ import org.grails.plugins.springsecurity.service.AuthenticateService
 import org.springframework.security.providers.UsernamePasswordAuthenticationToken as AuthToken
 import org.springframework.security.context.SecurityContextHolder as SCH
 
+import org.grails.mail.MailService
+
 /**
  * Actions over Person object.
  */
@@ -241,7 +243,22 @@ class RegisterController {
 		Person person = Person.findByEmail(params.email)
 		if(person != null){
 			//Regenerate pass & save new pass
+			def newPasswd = ""
+			def charArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9']
+			8.times{
+				newPasswd+= charArray[(Math.random()*charArray.size).toInteger()]
+			}
+			person.passwd = authenticateService.passwordEncoder(newPasswd)
+			person.save()
 			//Send new pass
+			mailService.sendMail {
+				to "neodevelop@gmail.com"
+				from "john@g2one.com"
+				subject "Hello John"
+				body 'this is some text'
+				println("mail sended!!!")
+			}
+			
 			flash.message="person.passwd.sendit"
 			flash.defaultMessage="It has send it a new password in the email provided..."
 			render(view:'forgot')
