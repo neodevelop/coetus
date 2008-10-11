@@ -14,19 +14,19 @@
 			<div class="box">
 				<form action='${request.contextPath}/j_spring_security_check' method='POST' id='loginForm' class='cssform'>
 					<p>
-						<label for='j_username'><g:message code="auth.loginId" default="Login ID" /></label><br/>
+						<label for='j_username'><g:message code="auth.loginId" default="Login ID" />:</label><br/>
 						<input type='text' class='text_' name='j_username' id='j_username'  />
 					</p>
 					<p>
-						<label for='j_password'><g:message code="auth.password" default="Password" /></label><br/>
+						<label for='j_password'><g:message code="auth.password" default="Password" />:</label><br/>
 						<input type='password' class='text_' name='j_password' id='j_password' />
 					</p>
 					<p>
-						<label for='remember_me'><g:message code="auth.rememberMe" default="Remember Me" /></label><br/>
+						<label for='remember_me'><g:message code="auth.rememberMe" default="Remember Me" />:</label>
 						<input type='checkbox' class='chk' id='remember_me' name='_spring_security_remember_me'>
 					</p>
 					<p>
-						<g:link controller="register" action="forgot">¿Olvidaste tu password?</g:link>
+						<g:link controller="register" action="forgot"><g:message code="auth.forgot.password" default="Forgot your password" /></g:link>
 					</p>
 					<p>
 						<input type='submit' value='Login' />
