@@ -84,7 +84,7 @@ security {
 	 * true and config your mail settings.Note you also need to run the script
 	 * grails generate-registration.
 	 */
-	useMail = false
+	useMail = true
 	//mailHost = 'mail.gentejava.org'
 	//mailUsername = 'user@localhost'
 	//mailPassword = 'sungod'
