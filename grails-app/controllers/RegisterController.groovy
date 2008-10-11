@@ -148,9 +148,7 @@ class RegisterController {
 
 		if (authenticateService.userDomain() != null) {
 			log.info("${authenticateService.userDomain()} user hit the register page")
-			//redirect(uri: '/me')
-			//return
-			redirect(controller:"person",action:"show",params:[person:authenticateService.userDomain()])
+			redirect(controller:"person",action:"show",params:[person:Person.get(authenticateService.userDomain().id)])
 		}
 
 		def person = new Person()
@@ -198,26 +196,7 @@ class RegisterController {
 				}
 			}
 			
-			if (config.security.useMail) {
-				String emailContent = """You have signed up for an account at:
-
- ${request.scheme}://${request.serverName}:${request.serverPort}${request.contextPath}
-
- Here are the details of your account:
- -------------------------------------
- LoginName: ${person.username}
- Email: ${person.email}
- Full Name: ${person.userRealName}
- Password: ${params.passwd}
-"""
-
-				def email = [
-					to: [person.email], // 'to' expects a List, NOT a single email address
-					subject: "[${request.contextPath}] Account Signed Up",
-					text: emailContent // 'text' is the email body
-				]
-      			emailerService.sendEmails([email])
-			}
+			sendAccountInfo(person, params.passwd)
 
 			person.save(flush: true)
 
@@ -226,7 +205,6 @@ class RegisterController {
 			SCH.context.authentication = authtoken
 			//Recaptcha
 			recaptchaService.cleanUp(session)
-			//redirect(uri: '/me')
 			flash.message = "register.ready"
 			redirect(controller:"person",action:"show",id:person.id)
 		}
@@ -251,13 +229,7 @@ class RegisterController {
 			person.passwd = authenticateService.passwordEncoder(newPasswd)
 			person.save()
 			//Send new pass
-			mailService.sendMail {
-				to "neodevelop@gmail.com"
-				from "john@g2one.com"
-				subject "Hello John"
-				body 'this is some text'
-				println("mail sended!!!")
-			}
+			sendAccountInfo(person, newPasswd)
 			
 			flash.message="person.passwd.sendit"
 			flash.defaultMessage="It has send it a new password in the email provided..."
@@ -266,6 +238,30 @@ class RegisterController {
 			person = new Person()
 			person.errors.rejectValue('email','person.email.notFound')
 			render(view:'forgot',model:[person:person])
+		}
+	}
+	
+	def sendAccountInfo(person, password) {
+		try {
+			mailService.sendMail {
+				to person.email
+				from "neodevelop@gmail.com"
+				subject "[Coetus] Account Info"
+				body """
+You have signed up for an account at:
+
+${request.scheme}://${request.serverName}:${request.serverPort}${request.contextPath}
+
+Here are the details of your account:
+-------------------------------------
+LoginName: ${person.username}
+Email: ${person.email}
+Full Name: ${person.userRealName}
+Password: ${password}
+"""
+			}
+		} catch (Throwable t) {
+			log.error "Error sending email"
 		}
 		
 	}
