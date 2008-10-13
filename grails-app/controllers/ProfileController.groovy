@@ -23,12 +23,9 @@ class ProfileController {
 	}
 	def update = {
         def person = Person.get( params.id )
-		//println(person)
         if(person) {
             person.properties = params
-			//println(person)
             if(!person.hasErrors() && person.save(flush:true)) {
-				//println(person)
                 flash.message = "person.info.updated"
                 flash.args = [person.username]
                 flash.defaultMessage = "Usuario : ${person.username} actualizado ...!!!"
