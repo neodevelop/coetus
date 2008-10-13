@@ -9,6 +9,7 @@
 			<g:if test="${event != null}">
 				<g:render template="/event/eventDetail"/>
 				<br />
+<!-- 
 				<g:if test="${event.talks.size() > 0}">
 					<h3><g:message code="talks.attendee" default="Talks I attendee" /></h3>
 
@@ -83,7 +84,7 @@
 		
 
 			</g:if>
-
+-->
 			
 			
 			
