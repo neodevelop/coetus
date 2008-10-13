@@ -24,7 +24,7 @@ import org.grails.mail.MailService
  * Actions over Person object.
  */
 class RegisterController {
-
+	
 	def mailService
 	def authenticateService
 	def daoAuthenticationProvider
@@ -245,7 +245,7 @@ class RegisterController {
 		try {
 			mailService.sendMail {
 				to person.email
-				from "neodevelop@gmail.com"
+				from "coetus@synergyj.com"
 				subject "[Coetus] Account Info"
 				body """
 You have signed up for an account at:
@@ -258,10 +258,18 @@ LoginName: ${person.username}
 Email: ${person.email}
 Full Name: ${person.userRealName}
 Password: ${password}
+
+Your full user profile at:
+${request.scheme}://${request.serverName}:${request.serverPort}${request.contextPath}/person/show/${person.id}
+
+Thanks and Enjoy
+--
+Staff SpringHispano.org
 """
 			}
 		} catch (Throwable t) {
 			log.error "Error sending email"
+			t.printStackTrace()
 		}
 		
 	}
