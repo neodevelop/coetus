@@ -77,6 +77,36 @@ class MyEventsController {
 		[event: event]
 	}
 	
+	def sendEventRegisterInfo(person, event) {
+		try {
+			sendMail {
+				to person.email
+				from "coetus@synergyj.com"
+				subject "[Coetus] Register Event Info"
+				body """
+You have successful register to a Event:
+
+Here are the details of your register:
+-------------------------------------
+Full Name: ${person.userRealName}
+Event: ${event.name}
+Date: ${event.startTime}
+
+Full event details at:
+${request.scheme}://${request.serverName}:${request.serverPort}${request.contextPath}/events/detail/${event.id}
+
+Thanks and Enjoy
+--
+Staff SpringHispano.org
+"""
+			}
+		} catch (Throwable t) {
+			log.error "Error sending email"
+			t.printStackTrace()
+		}
+		
+	}
+	
 	def doRegistry ={
 		def event = Event.get(params.id)
 		if (!event) {
@@ -128,6 +158,7 @@ class MyEventsController {
 		
 		flash.message = "registration.successful"
         flash.defaultMessage = "Your registration is successful"
+		sendEventRegisterInfo(person, event)
 		
 		redirect(action:"myDetail", id:event.id)
 	}
@@ -169,16 +200,12 @@ class MyEventsController {
 		
 		def attendee = Attendee.findByPersonAndEvent(user, event)
 		
-		println attendee
-		
-		
 		def cc = []
 		
 		params.each{ k, v-> 
 			if(k.startsWith("talk_")) {
 				def t = k.substring(k.lastIndexOf("_") + 1)
 				cc.add(t)
-				println "Encontre charla : " + k
 			}
 		}
 				
@@ -188,14 +215,9 @@ class MyEventsController {
 			def c = Talk.get(it)
 			println c
 			attendee.addToTalks(c)
-			println "agregue la charla a la asistencia"
 		}
 		
 		attendee.save(flush:true)
-		println attendee
-		println attendee.talks
-		
-		
 		redirect(action:"myDetail", id:event.id)s
 	}
 }
