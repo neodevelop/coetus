@@ -36,13 +36,13 @@ class EventTagLib {
 	}
 	
 	def myEvents = { attrs ->
-		def user = authenticateService.userDomain()
+		def user = Person.get(authenticateService.userDomain()?.id)
 		if (user) {
 			out <<  '<h3>'
 			out <<  attrs.title
 			out <<  '</h3> <div class="content"> <ul class="linklist">'
 			
-			def attendees = Attendee.findByPerson(user)
+			def attendees = Attendee.findAllByPerson(user)
 			
 			if(!attendees) {
 				out << 'Sin eventos'
