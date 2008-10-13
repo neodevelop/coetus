@@ -30,8 +30,6 @@ class CreateController {
 		} catch (Throwable t) {
 			flash.message = 'Error en el registro del evento'
 			render(view: 'event', model: [event: event])
-			//redirect(controller:"create", action:"saveEvent", event:event)
-			//return
 		}
 		
 		
