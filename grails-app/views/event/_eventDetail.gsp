@@ -22,7 +22,7 @@
 	        </tbody>
 	    </table><br/>
 		<g:if test="${event?.hasLocation()}">
-			<resource:googlemaps key="ABQIAAAAVI8tN8ZVK-n0fDPZbAvxyxSZfqRnYxVEt7pMH2xm7ibWPzQotxSFxMF4BAaFB9Wmu78Fr-tZELJp0g" />
+			<resource:googlemaps key="ABQIAAAAVI8tN8ZVK-n0fDPZbAvxyxQOdPk9Zpe3OjVsiMhMgz763HvImBRAhrJ2KUwZ-qDdBfmRg4ZMIsj2kg" />
 			<richui:googlemaps lat="${event?.llatitude()}" lng="-${event?.llongitude()}" />
 		</g:if>
 		
