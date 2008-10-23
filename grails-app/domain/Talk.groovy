@@ -15,6 +15,8 @@
  */
 
 class Talk {
+	static searchable = true
+	
 	Event event
 	String title
 	String summary

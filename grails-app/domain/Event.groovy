@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 class Event {
+	static searchable = true
+	
 	String name
 	String description
 	Date startTime = new Date()

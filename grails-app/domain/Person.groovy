@@ -18,6 +18,7 @@
  * Person for user account.
  */
 class Person {
+	static searchable = true
 	static transients = ['pass']
 	static hasMany = [authorities: Authority]
 	static belongsTo = Authority
