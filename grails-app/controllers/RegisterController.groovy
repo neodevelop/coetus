@@ -252,6 +252,8 @@ You have signed up for an account at:
 
 ${request.scheme}://${request.serverName}:${request.serverPort}${request.contextPath}
 
+You only get a account at Coetus, this does not mean that you've signed up to an event.
+
 Here are the details of your account:
 -------------------------------------
 LoginName: ${person.username}
@@ -260,11 +262,11 @@ Full Name: ${person.userRealName}
 Password: ${password}
 
 Your full user profile at:
-${request.scheme}://${request.serverName}:${request.serverPort}${request.contextPath}/person/show/${person.id}
+${request.scheme}://${request.serverName}:${request.serverPort}${request.contextPath}/me
 
 Thanks and Enjoy
 --
-Staff SpringHispano.org
+SpringHispano.org Staff
 """
 			}
 		} catch (Throwable t) {
