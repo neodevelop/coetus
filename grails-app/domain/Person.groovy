@@ -41,7 +41,7 @@ class Person {
 	
 	String company
 	String blog
-	String location
+	String geolocation
 
 	/** plain password to create a MD5 password */
 	String pass = '[secret]'
@@ -50,12 +50,13 @@ class Person {
 		username(blank: false, unique: true,size:1..30)
 		userRealName(blank: true,size:0..200)
 		company(nullable:true,blank:true,size:0..100)
-		location(nullable:true,blank:true,size:0..200)
+		geolocation(nullable:true,blank:true,size:0..200)
 		passwd(blank: false,size:0..300)
 		email(blank:false,email:true,unique:true)
 		description(nullable:true,blank:true,size:0..1000)
 		blog(nullable:true,blank:true,url:true,size:0..300)
 		enabled()
+		notifyMeAttendees(nullable:true)
 	}
 	
 	static mapping = {
