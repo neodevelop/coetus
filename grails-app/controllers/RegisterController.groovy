@@ -206,7 +206,7 @@ class RegisterController {
 			//Recaptcha
 			recaptchaService.cleanUp(session)
 			flash.message = "register.ready"
-			redirect(controller:"person",action:"show",id:person.id)
+			redirect(controller:"me")
 		}
 		else {
 			person.passwd = ''
