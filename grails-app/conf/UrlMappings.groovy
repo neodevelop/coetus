@@ -22,7 +22,7 @@ class UrlMappings {
 		}
 		"/me" {
 			controller = "profile"
-			action = "my"
+			action = "show"
 		}
 		"/signup" {
 			controller = "register"
