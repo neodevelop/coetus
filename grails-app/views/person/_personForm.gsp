@@ -2,12 +2,12 @@
 <div class="box">
 	<p>
 		<label for="username"><g:message code="person.username" default="Username" />:</label>:<br/>
-		<input type="hidden" id="id" name="id" value="${fieldValue(bean:person,field:'id')}" />
-		<input type="text" size="42" maxlength="30" id="username" name="username" value="${fieldValue(bean:person,field:'username')}"/>
+		<input type="hidden" id="id" name="id" value="${person?.id}" />
+		<input type="text" size="42" maxlength="30" id="username" name="username" value="${person?.username}"/>
 	</p>
 	<p>
 		<label for="userRealName"><g:message code="person.userRealName" default="User Real Name" />:</label><br/>
-		<input type="text" size="42" maxlength="200" id="userRealName" name="userRealName" value="${fieldValue(bean:person,field:'userRealName')}"/>
+		<input type="text" size="42" maxlength="200" id="userRealName" name="userRealName" value="${person?.userRealName}"/>
 	</p>
 	<p>
 		<p><label for="description"><g:message code="person.description" default="Description" />:</label><br />
@@ -41,8 +41,8 @@
 	</g:if>
 	<!-- 
 	<p>
-        <label for="location"><g:message code="person.location" default="Location" />:</label><br/>
-		<input type="text" size="42" maxlength="100" id="location" name="location" value="${fieldValue(bean:person,field:'location')}"/>
+        <label for="geolocation"><g:message code="person.geolocation" default="Geo Location" />:</label><br/>
+		<input type="text" size="42" maxlength="100" id="geolocation" name="geolocation" value="${fieldValue(bean:person,field:'geolocation')}"/>
     </p>
 	-->
 	<g:ifAllGranted role="ROLE_ADMIN">
