@@ -33,6 +33,25 @@ class UtilTagLib {
 		}
 	}
 	
+	def selfUserOrAdmin = { attrs, body ->
+		//def imageLocation = g.createLinkTo(dir:"images", file:"logo.jpg")
+		def granted = false
+		def idUsr = attrs.person?.id
+		if("true".equals(ifAllGranted(role:"ROLE_ADMIN") {'true'})) {
+			granted = true
+			log.debug "Se otorga por ser Administrador"
+		} else {
+			if(authenticateService.userDomain()?.id == idUsr) {
+				granted = true
+				log.debug "Se otorga por ser el mismo usuario"
+			}
+		}
+		if(granted) {
+			out << body()
+		}
+		
+	}
+	
 	private void checkDefaultRole() {
 		if(Authority.count() == 0) {
 			new Authority(description:"Usuario del Sistema", authority:"ROLE_USER").save()
