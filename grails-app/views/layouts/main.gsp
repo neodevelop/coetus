@@ -38,7 +38,7 @@
 					<div id="date">
 						<g:message code="welcome" default="Welcome" />
 						<g:isLoggedIn>
-							<a href="<g:createLink controller='profile' action='my' />"><g:loggedInUserInfo field="userRealName" /></a>
+							<a href="<g:createLink controller='me' />"><g:loggedInUserInfo field="userRealName" /></a>
 							<avatar:gravatar email="${loggedInUserInfo(field:'email')}" size="25"/>
 						</g:isLoggedIn>
 						<g:isNotLoggedIn><g:message code="guest" default="Guest" /></g:isNotLoggedIn>
