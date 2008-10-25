@@ -21,7 +21,7 @@ class ProfileController {
 	def show = {
 		[person:Person.get(authenticateService.userDomain()?.id)]
 	}
-	def my = {
+	def edit = {
 		[person:Person.get(authenticateService.userDomain()?.id)]
 	}
 	def update = {
