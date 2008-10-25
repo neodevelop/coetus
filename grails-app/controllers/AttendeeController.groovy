@@ -30,9 +30,4 @@ class AttendeeController {
 		
 		render(view: 'list', model: [attendeeList: attendeeList])
 	}
-	
-	def testAjax = {
-		println "Hola desde el server"
-		render "Hola desde el server"
-	}
 }
