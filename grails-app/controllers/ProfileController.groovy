@@ -16,30 +16,27 @@
 class ProfileController {
 	def authenticateService
 	def index = {
-		redirect(action: my, params: params)
+		redirect(action: show, params: params)
+	}
+	def show = {
+		[person:Person.get(authenticateService.userDomain()?.id)]
 	}
 	def my = {
 		[person:Person.get(authenticateService.userDomain()?.id)]
 	}
 	def update = {
-        def person = Person.get( params.id )
-        if(person) {
-            person.properties = params
-            if(!person.hasErrors() && person.save(flush:true)) {
-                flash.message = "person.info.updated"
-                flash.args = [person.username]
-                flash.defaultMessage = "Usuario : ${person.username} actualizado ...!!!"
-                redirect(controller:"person",action:"show",id:person.id)
-            }
-            else {
-                render(view:'my',model:[person:person])
-            }
-        }
-        else {
-            flash.message = "person.not.found"
-            flash.args = [params.id]
-            flash.defaultMessage = "Person not found with id ${params.id}"
-            redirect(action:my, params: params)
-        }
+		def person = Person.get(authenticateService.userDomain()?.id)
+		if(person) {
+			person.properties = params
+			if(!person.hasErrors() && person.save(flush:true)) {
+				flash.message = "person.info.updated"
+				flash.args = [person.username]
+				flash.defaultMessage = "User : ${person.username} updated successful...!!!"
+				redirect(uri: '/me')
+			}
+			else {
+				render(view:'my',model:[person:person])
+			}
+		}
     }
 }
