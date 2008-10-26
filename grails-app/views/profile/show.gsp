@@ -18,7 +18,8 @@
 				    <g:render template="../person/personDetails"  model="['bean':person]" />
 					<util:selfUserOrAdmin person="${person}">
 						<div class="buttons">
-							<span class="menuButton"><g:link class="create" action="edit"><g:message code="edit" default="Edit" /></g:link></span>
+							<span class="menuButton"><g:link class="edit" action="edit"><g:message code="edit" default="Edit" /></g:link></span>
+							<span class="menuButton"><g:link action="changePassword"><g:message code="password.change" default="Change Password" /></g:link></span>
 						</div>
 					</util:selfUserOrAdmin>
 				</richui:tabContent>

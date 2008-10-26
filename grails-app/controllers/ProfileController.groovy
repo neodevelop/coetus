@@ -24,6 +24,9 @@ class ProfileController {
 	def edit = {
 		[person:Person.get(authenticateService.userDomain()?.id)]
 	}
+	def changePassword = {
+		[person:Person.get(authenticateService.userDomain()?.id)]
+	}
 	def update = {
 		def person = Person.get(authenticateService.userDomain()?.id)
 		if(person) {
@@ -39,4 +42,28 @@ class ProfileController {
 			}
 		}
     }
+	def updatePassword = { ChangePasswordForm changePassword ->
+		def person = Person.get(authenticateService.userDomain()?.id)
+		if(person) {
+			if(changePassword.hasErrors()) {
+				render(view:'changePassword',model:[changePassword:changePassword, person:person])
+			} else {
+	            // do something else
+				def pass = authenticateService.passwordEncoder(changePassword.passwd)
+				person.passwd = pass
+				if (person.save(flush:true)) {
+					flash.message = "person.password.updated"
+					flash.args = [person.username]
+					flash.defaultMessage = "User : ${person.username} updated successful...!!!"
+					redirect(uri: '/me')
+				} else {
+					flash.message = "person.password.updatedss"
+					flash.args = [person.username]
+					flash.defaultMessage = "Error al modificar el password"
+					render(view:'changePassword',model:[changePassword:changePassword, person:person])
+				}
+				
+	        }
+		}
+	}
 }
