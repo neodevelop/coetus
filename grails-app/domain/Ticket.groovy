@@ -23,6 +23,8 @@ class Ticket implements Comparable {
 	Date startSelling
 	Date endSelling
 	String description
+	Date dateCreated
+	Date lastUpdated
 	
 	static constraints = {
 		name(blank:false,nullable:false,size:1..30)
@@ -33,6 +35,8 @@ class Ticket implements Comparable {
 		startSelling()
 		endSelling()
 		description(blank:true,nullable:true,size:0..700)
+		dateCreated(nullable:true)
+		lastUpdated(nullable:true)
 	}
 	
 	/**

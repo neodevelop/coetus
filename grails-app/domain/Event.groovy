@@ -27,6 +27,9 @@ class Event {
 	Boolean showStatus = true
 	SortedSet tickets
 	Person createdBy
+	Date dateCreated
+	Date lastUpdated
+	
 	static hasMany = [talks:Talk, tickets:Ticket]
 	
 	static constraints = {
@@ -37,6 +40,8 @@ class Event {
 		allDay(nullable:true)
 		location(blank:true,size:0..1000)
 		necessaryRegistry(nullable:true)
+		dateCreated(nullable:true)
+		lastUpdated(nullable:true)
 	}
 	
 	String toString() { "${name}" }

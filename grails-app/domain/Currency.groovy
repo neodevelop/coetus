@@ -14,5 +14,11 @@
  * limitations under the License.
  */
 class Currency {
-
+	Date dateCreated
+	Date lastUpdated
+	
+	static constraints = {
+		dateCreated(nullable:true)
+		lastUpdated(nullable:true)
+	}
 }

@@ -28,6 +28,8 @@ class Talk {
 	Boolean displayCapacity = false
 	Status status = Status.PLANNING
 	Boolean showStatus = true
+	Date dateCreated
+	Date lastUpdated
 	
 	static belongsTo = Person
 	static hasMany = [speakers:Person]
@@ -42,6 +44,8 @@ class Talk {
 		necessaryRegistry(nullable:false)
 		capacity()
 		displayCapacity()
+		dateCreated(nullable:true)
+		lastUpdated(nullable:true)
 	}
 	
 	static mapping = {

@@ -16,7 +16,15 @@
 class Attendee {
 	Person person
 	Event event
+	Date dateCreated
+	Date lastUpdated
+	
 	static hasMany = [talks: Talk]
 	
 	String toString() { "${person.username} - ${event.name}" }
+	
+	static constraints = {
+		dateCreated(nullable:true)
+		lastUpdated(nullable:true)
+	}
 }

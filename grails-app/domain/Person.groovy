@@ -42,6 +42,8 @@ class Person {
 	String company
 	String blog
 	String geolocation
+	Date dateCreated
+	Date lastUpdated
 
 	/** plain password to create a MD5 password */
 	String pass = '[secret]'
@@ -57,10 +59,13 @@ class Person {
 		blog(nullable:true,blank:true,url:true,size:0..300)
 		enabled()
 		notifyMeAttendees(nullable:true)
+		dateCreated(nullable:true)
+		lastUpdated(nullable:true)
 	}
 	
 	static mapping = {
 		tablePerHierarchy false
+		cache false
 	}
 	
 	def hasLocation() {
