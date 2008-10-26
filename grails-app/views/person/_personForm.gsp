@@ -11,7 +11,7 @@
 	</p>
 	<p>
 		<p><label for="description"><g:message code="person.description" default="Description" />:</label><br />
-		<richui:richTextEditor name="description" value="${person?.description}" width="425" />
+		<richui:richTextEditor name="description" value="${person?.description}" width="425" type="advanced" />
 	</p>
 	<g:if test="${newRecord}">
 		<g:render template="../person/personPasswordForm" />
@@ -39,17 +39,13 @@
 			<g:checkBox name="manager" id="manager" />
 	    </p>
 	</g:if>
-	<!-- 
 	<p>
         <label for="geolocation"><g:message code="person.geolocation" default="Geo Location" />:</label><br/>
 		<input type="text" size="42" maxlength="100" id="geolocation" name="geolocation" value="${fieldValue(bean:person,field:'geolocation')}"/>
     </p>
-	-->
 	<g:ifAllGranted role="ROLE_ADMIN">
-		<p><label for="enabled"><g:message code="person.enabled" default="Enabled" />:</label><br />
+		<p><label for="enabled"><g:message code="person.enabled" default="Enabled" />:</label>
 		<g:checkBox name="enabled" value="${person?.enabled}" ></g:checkBox></p>
-		
-		
 		<ul>
 		<g:each var="a" in="${person?.authorities?}">
 		    <li><g:link controller="authority" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
