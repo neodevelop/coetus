@@ -28,7 +28,7 @@ class UrlMappings {
 			controller = "register"
 			action = "index"
 		}
-		"/member/$id" {
+		"/user/$id" {
 			controller = "profile"
 			action = "member"
 		}
