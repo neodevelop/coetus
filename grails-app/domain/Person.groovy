@@ -65,7 +65,7 @@ class Person {
 	
 	static mapping = {
 		tablePerHierarchy false
-		cache false
+		cache usage:'read-write'
 	}
 	
 	def hasLocation() {

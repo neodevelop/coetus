@@ -24,6 +24,27 @@ class ProfileController {
 	def edit = {
 		[person:Person.get(authenticateService.userDomain()?.id)]
 	}
+	def member = {
+		def id = params.id
+		def longId = null
+		def member = null
+		
+		try {
+			longId = Long.valueOf(id)
+			member = Person.get(longId)
+		} catch (Throwable t) {
+			log.info "se recibio una cadena"
+		}
+		if(!member) {
+			member = Person.findByUsername(id)
+		}
+		
+		if(!member) {
+			flash.message = "Person not found with id ${params.id}"
+			redirect(uri: '/')
+		}
+		[person:member]
+	}
 	def changePassword = {
 		[person:Person.get(authenticateService.userDomain()?.id)]
 	}
@@ -62,7 +83,6 @@ class ProfileController {
 					flash.defaultMessage = "Error al modificar el password"
 					render(view:'changePassword',model:[changePassword:changePassword, person:person])
 				}
-				
 	        }
 		}
 	}

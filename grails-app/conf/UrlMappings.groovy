@@ -28,6 +28,10 @@ class UrlMappings {
 			controller = "register"
 			action = "index"
 		}
+		"/member/$id" {
+			controller = "profile"
+			action = "member"
+		}
 		"500"(view:'/error')
 	}
 }
