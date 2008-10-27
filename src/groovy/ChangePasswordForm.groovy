@@ -26,9 +26,11 @@ class ChangePasswordForm {
 	}
 	
 	static actualPasswordValidator = { val, obj ->
+		// Get currentUser
 		def currentUser = Person.get(obj.authenticateService.userDomain()?.id)
-		
+		//Encode actual password
 		def pass = obj.authenticateService.passwordEncoder(val)
+		//Compare with stored password
 		if(!pass.equals(currentUser.passwd)) {
 			return ['password.incorrectPassword']
 		}
