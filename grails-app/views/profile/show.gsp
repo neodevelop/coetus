@@ -24,7 +24,7 @@
 					</util:selfUserOrAdmin>
 				</richui:tabContent>
 				<richui:tabContent>
-				    Implement this
+				    <maps:map geolocalization="${person?.geolocation}"/>
 				</richui:tabContent>
 				<richui:tabContent>
 				<g:message code="events.current", default="Current Events" />
