@@ -52,7 +52,7 @@ class Person {
 		username(blank: false, unique: true,size:1..30)
 		userRealName(blank: true,size:0..200)
 		company(nullable:true,blank:true,size:0..100)
-		geolocation(nullable:true,blank:true,size:0..200)
+		geolocation(nullable:true,blank:true,size:0..200,geolocation:true)
 		passwd(blank: false,size:0..300)
 		email(blank:false,email:true,unique:true)
 		description(nullable:true,blank:true,size:0..1000)
@@ -67,27 +67,6 @@ class Person {
 		tablePerHierarchy false
 		cache usage:'read-write'
 	}
-	
-	def hasLocation() {
-		return location?.length() > 0;
-	}
-	
-	def mapLocation() {
-		if(hasLocation()) {
-			def l = location.split(",")
-			return ["latitude":l[0], "longitude":l[1]]
-		}
-		return null;
-	}
-	
-	def llatitude() {
-		return mapLocation()["latitude"]
-	}
-	def llongitude() {
-		return mapLocation()["longitude"]
-	}
-	
-	
 	
 	String toString() { "${username} - ${userRealName}" }
 }

@@ -15,6 +15,7 @@
  */
 class Event {
 	static searchable = true
+	static geolocatizable = "location"
 	
 	String name
 	String description
@@ -38,30 +39,11 @@ class Event {
 		startTime(nullable:true)
 		endTime(nullable:true)
 		allDay(nullable:true)
-		location(blank:true,size:0..1000)
+		location(blank:true,size:0..1000,geolocation:true)
 		necessaryRegistry(nullable:true)
 		dateCreated(nullable:true)
 		lastUpdated(nullable:true)
 	}
 	
 	String toString() { "${name}" }
-	
-	def hasLocation() {
-		return location?.length() > 0;
-	}
-	
-	def mapLocation() {
-		if(hasLocation()) {
-			def l = location.split(",")
-			return ["latitude":l[0], "longitude":l[1]]
-		}
-		return null;
-	}
-	
-	def llatitude() {
-		return mapLocation()["latitude"]
-	}
-	def llongitude() {
-		return mapLocation()["longitude"]
-	}
 }
