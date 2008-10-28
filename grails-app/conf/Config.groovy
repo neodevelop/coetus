@@ -103,4 +103,38 @@ avatarPlugin {
 	gravatarRating="G"
 }
 
-//log4j.logger.org.springframework.security='on,stdout'
+//cobertura exclusions
+coverage {
+	exclusions = ['**/org/grails/**',
+	              '**/org/codehaus/**',
+	              '**/com/synergyj/grails/plugins/**',
+	              '**/de/andreasschmitt/**',
+	              '**/*AccordionTagLib*/**',
+	              '**/*AutoCompleteTagLib*/**',
+	              '**/*CalendarTagLib*/**',
+	              '**/*CarouselTagLib*/**',
+	              '**/*DateChooserTagLib*/**',
+	              '**/*DefaultSecurityConfig*/**',
+	              '**/*FlowTagLib*/**',
+	              '**/*FontImageController*/**',
+	              '**/*FontImageService*/**',
+	              '**/*FontTagLib*/**',
+	              '**/*GoogleMapsTagLib*/**',
+	              '**/*PortletTagLib*/**',
+	              '**/*ProgressBarTagLib*/**',
+	              '**/*RatingTagLib*/**',
+	              '**/*Recaptcha*/**',
+	              '**/*ReflectionImageTagLib*/**',
+	              '**/*ResourceTagLib*/**',
+	              '**/*RichTextEditorTagLib*/**',
+	              '**/*RichUIUtilTagLib*/**',
+	              '**/*RichuiConfig*/**',
+	              '**/*Searchable*/**',
+	              '**/*SecurityConfig*/**',
+	              '**/*SetupCoetusController*/**',
+	              '**/*TabViewTagLib*/**',
+	              '**/*TagCloudTagLib*/**',
+	              '**/*TimelineTagLib*/**',
+	              '**/*TooltipTagLib*/**',
+	              '**/*TreeViewTagLib*/**']
+}
