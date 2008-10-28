@@ -28,10 +28,10 @@ class CreateController {
 			eventService.create event
 			redirect(controller:"event", action:"show", id:event.id)
 		} catch (Throwable t) {
-			flash.message = 'Error en el registro del evento'
+			flash.message = 'event.register.error'
+            //flash.args = [params.id]
+            flash.defaultMessage = "Event register error"
 			render(view: 'event', model: [event: event])
 		}
-		
-		
 	}
 }
