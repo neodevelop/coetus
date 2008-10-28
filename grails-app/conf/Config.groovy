@@ -103,6 +103,12 @@ avatarPlugin {
 	gravatarRating="G"
 }
 
+
+googlemaps {
+	key = "ABQIAAAAVI8tN8ZVK-n0fDPZbAvxyxSZfqRnYxVEt7pMH2xm7ibWPzQotxSFxMF4BAaFB9Wmu78Fr-tZELJp0g"
+}
+
+
 //cobertura exclusions
 coverage {
 	exclusions = ['**/org/grails/**',
