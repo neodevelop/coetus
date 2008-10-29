@@ -10,14 +10,7 @@
 		</div>
 		<div class="body">
 			<h1>Create Requestmap</h1>
-			<g:if test="${flash.message}">
-			<div class="message">${flash.message}</div>
-			</g:if>
-			<g:hasErrors bean="${requestmap}">
-			<div class="errors">
-				<g:renderErrors bean="${requestmap}" as="list" />
-			</div>
-			</g:hasErrors>
+			<g:render template="../util/showErrors" model="['bean':requestmap]" />
 			<g:form action="save" method="post" >
 				<div class="dialog">
 					<table>

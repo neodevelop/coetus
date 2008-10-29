@@ -5,14 +5,7 @@
 	</head>
 	<body>
 		<h1><g:message code="event.create" default="Create event" /></h1>
-		<g:if test="${flash.message}">
-			<div class="message">${flash.message}</div>
-		</g:if>
-		<g:hasErrors bean="${event}">
-			<div class="errors">
-				<g:renderErrors bean="${event}" as="list" />
-			</div>
-		</g:hasErrors>
+		<g:render template="../util/showErrors" model="['bean':event]" />
 		<g:form action="saveEvent" method="post" name='registerForm' >
 			<g:render template="../event/eventForm" model="['newRecord':true]"/>
 			

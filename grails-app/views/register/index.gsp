@@ -6,14 +6,7 @@
 	<body>
 		<h1><g:message code="person.create" default="Create Person" /></h1>
 		<br/>
-		<g:if test="${flash.message}">
-			<div class="message">${flash.message}</div>
-		</g:if>
-		<g:hasErrors bean="${person}">
-			<div class="errors">
-				<g:renderErrors bean="${person}" as="list" />
-			</div>
-		</g:hasErrors>
+		<g:render template="../util/showErrors" model="['bean':person]" />
 		<g:form action="save" method="post" name='registerForm' >
 			<g:render template="../person/personForm" model="['newRecord':true]"/>
 			

@@ -10,14 +10,7 @@
         </div>
         <div class="body">
             <h1><g:message code="talk.edit" default="Edit Talk" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message"><g:message code="${flash.message}" args="${flash.args}" default="${flash.defaultMessage}" /></div>
-            </g:if>
-            <g:hasErrors bean="${talk}">
-            <div class="errors">
-                <g:renderErrors bean="${talk}" as="list" />
-            </div>
-            </g:hasErrors>
+            <g:render template="../util/showErrors" model="['bean':talk]" />
             <g:form method="post" >
                 <input type="hidden" name="id" value="${talk?.id}" />
                 <div class="dialog">

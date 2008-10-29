@@ -6,11 +6,7 @@
 	<body>
 		<h1><g:message code="person.passwd.forgot" default="Forgot your password..." /></h1>
 		<br/>
-		<g:hasErrors bean="${person}">
-			<div class="errors">
-				<g:renderErrors bean="${person}" as="list" />
-			</div>
-		</g:hasErrors>
+		<g:render template="../util/showErrors" model="['bean':person]" />
 		<g:form action="recovery" method="post" name='recoveryForm' >
 			<div class="box">
 			<p>

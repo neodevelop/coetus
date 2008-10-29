@@ -9,14 +9,7 @@
         </div>
         <div class="body">
             <h1><g:message code="attendee.create" default="Create Attendee" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message"><g:message code="${flash.message}" args="${flash.args}" default="${flash.defaultMessage}" /></div>
-            </g:if>
-            <g:hasErrors bean="${attendee}">
-            <div class="errors">
-                <g:renderErrors bean="${attendee}" as="list" />
-            </div>
-            </g:hasErrors>
+            <g:render template="../util/showErrors" model="['bean':attendee]" />
             <g:form action="save" method="post" >
                 <div class="dialog">
                     <table>

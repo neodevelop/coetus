@@ -10,9 +10,6 @@
         <div class="body">
 			<g:if test="${attendeeList != null}">
 				<h1><g:message code="attendee.list" default="Attendee List" /></h1>
-	            <g:if test="${flash.message}">
-	            <div class="message"><g:message code="${flash.message}" args="${flash.args}" default="${flash.defaultMessage}" /></div>
-	            </g:if>
 	            <div class="list">
 	                <table>
 	                    <thead>

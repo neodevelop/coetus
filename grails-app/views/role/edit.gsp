@@ -11,14 +11,7 @@
 		</div>
 		<div class="body">
 			<h1>Edit Authority</h1>
-			<g:if test="${flash.message}">
-			<div class="message">${flash.message}</div>
-			</g:if>
-			<g:hasErrors bean="${authority}">
-			<div class="errors">
-				<g:renderErrors bean="${authority}" as="list" />
-			</div>
-			</g:hasErrors>
+			<g:render template="../util/showErrors" model="['bean':authority]" />
 			<div class="prop">
 				<span class="name">Id:</span>
 				<span class="value">${authority?.id}</span>

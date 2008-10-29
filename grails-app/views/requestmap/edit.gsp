@@ -11,14 +11,7 @@
 		</div>
 		<div class="body">
 			<h1>Edit Requestmap</h1>
-			<g:if test="${flash.message}">
-			<div class="message">${flash.message}</div>
-			</g:if>
-			<g:hasErrors bean="${requestmap}">
-			<div class="errors">
-			<g:renderErrors bean="${requestmap}" as="list" />
-			</div>
-			</g:hasErrors>
+			<g:render template="../util/showErrors" model="['bean':requestmap]" />
 
 			<div class="prop">
 				<span class="name">Id:</span>

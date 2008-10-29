@@ -9,14 +9,7 @@
     </div>
     <div class="body">
       <h1>Edit Profile</h1>
-      <g:if test="${flash.message}">
-        <div class="message">${flash.message}</div>
-      </g:if>
-      <g:hasErrors bean="${person}">
-        <div class="errors">
-          <g:renderErrors bean="${person}" as="list" />
-        </div>
-      </g:hasErrors>
+      <g:render template="../util/showErrors" model="['bean':person]" />
 
       <g:form controller="register" method="post" >
         <input type="hidden" name="id" value="${person?.id}" />

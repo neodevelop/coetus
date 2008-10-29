@@ -13,9 +13,6 @@
 
 		<div class="body">
 			<h1>Show Person</h1>
-			<g:if test="${flash.message}">
-			<div class="message">${flash.message}</div>
-			</g:if>
 			<div class="dialog">
 				<table>
 				<tbody>

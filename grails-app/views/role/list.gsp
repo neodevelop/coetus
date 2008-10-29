@@ -10,9 +10,6 @@
 		</div>
 		<div class="body">
 			<h1>Authority List</h1>
-			<g:if test="${flash.message}">
-			<div class="message">${flash.message}</div>
-			</g:if>
 			<div class="list">
 				<table>
 				<thead>
