@@ -2,6 +2,7 @@
 	<head>
 		<meta name="layout" content="main" />
 		<title><g:message code="event.show" default="Show Event" /></title>
+		<util:modalIncludes />
     </head>
 	<body>
 		<div class="body">

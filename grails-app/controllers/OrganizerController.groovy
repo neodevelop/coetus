@@ -12,4 +12,10 @@ class OrganizerController {
 	def createOrganizer = {
 		
 	}
+	def detail = {
+		def organizer = Organizer.get(params.id)
+		if(organizer) {
+			render(template:"../organizer/organizerDetail",model:[organizer:organizer])
+		}
+	}
 }

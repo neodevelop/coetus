@@ -1,7 +1,14 @@
 <div class="transparent-box">
 	<h2>${event?.name}</h2>
 	<label><g:message code="event.createdBy" default="Created By" />:</label>${event?.createdBy?.userRealName}<br/>
-	<label><g:message code="event.organizedBy" default="Organized By" />:</label>${event?.organizer?.name}<br/>
+	<g:if test="${event?.organizer}">
+		<label><g:message code="event.organizedBy" default="Organized By" />:</label>
+		<modalbox:createLink controller="organizer" action="detail" id="${event?.organizer?.id}" title="${event?.organizer?.name}" width="500">${event?.organizer?.name}</modalbox:createLink>
+		<br/>
+	</g:if>
+	
+	
+	
 	${event?.description}
 	<table>
 		<tbody>
