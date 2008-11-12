@@ -20,8 +20,8 @@
 class Person {
 	static searchable = true
 	static transients = ['pass']
-	static hasMany = [authorities: Authority]
-	static belongsTo = Authority
+	static hasMany = [authorities: Authority, organizations:Organizer]
+	static belongsTo = [Authority, Organizer]
 
 	/** Username */
 	String username

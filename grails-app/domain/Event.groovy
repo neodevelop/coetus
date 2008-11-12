@@ -30,6 +30,7 @@ class Event {
 	Person createdBy
 	Date dateCreated
 	Date lastUpdated
+	Organizer organizer
 	
 	static hasMany = [talks:Talk, tickets:Ticket]
 	
@@ -43,6 +44,7 @@ class Event {
 		necessaryRegistry(nullable:true)
 		dateCreated(nullable:true)
 		lastUpdated(nullable:true)
+		organizer(nullable:false)
 	}
 	
 	String toString() { "${name}" }

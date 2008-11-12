@@ -85,4 +85,14 @@ class UtilTagLib {
 	def dateFormat = { attrs ->
 	   out << new java.text.SimpleDateFormat(attrs.format).format(attrs.value)
 	}
+	
+	def modalIncludes = {
+        def jsFolder    = createLinkTo(dir:'plugins',file:'modalbox-0.3/js/modalbox')
+        def cssFolder   = createLinkTo(dir:'plugins',file:'modalbox-0.3/css')
+        
+        out << """
+    		<script type='text/javascript' src='${jsFolder}/modalbox.js'></script>
+    		<link rel='stylesheet' href='${cssFolder}/modalbox.css' />
+        """
+    }
 }

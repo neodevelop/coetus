@@ -2,6 +2,8 @@
 	<head>
 		<meta name="layout" content="main" />
 		<title><g:message code="person.create" default="Create Person" /></title>
+		<util:modalIncludes />
+		
 	</head>
 	<body>
 		<h1><g:message code="person.create" default="Create Person" /></h1>

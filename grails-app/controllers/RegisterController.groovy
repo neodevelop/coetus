@@ -275,4 +275,9 @@ SpringHispano.org Staff
 		}
 		
 	}
+	
+	def organizadores = {
+		println "en organizadores"
+		render("Hola desde el server")
+    }
 }

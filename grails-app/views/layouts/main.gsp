@@ -8,6 +8,7 @@
 		<script>
 			// Load prototype
 			google.load("prototype", "1.6.0.2");
+			google.load("scriptaculous", "1.8.1");
 		</script>
 		<g:layoutHead />
 	</head>
