@@ -5,6 +5,10 @@
 
 	${fieldValue(bean:organizer, field:'info')}
 	
+	<br />
+	
+	<g:link controller="feeds" action="eventsByOrganizer" id="${organizer?.id}">Eventos de ${organizer?.name}</g:link>
+	
 	
 <!--
 <tr class="prop">
