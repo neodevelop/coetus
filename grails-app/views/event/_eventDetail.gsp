@@ -1,6 +1,7 @@
 <div class="transparent-box">
 	<h2>${event?.name}</h2>
 	<label><g:message code="event.createdBy" default="Created By" />:</label>${event?.createdBy?.userRealName}<br/>
+	<label><g:message code="event.organizedBy" default="Organized By" />:</label>${event?.organizer?.name}<br/>
 	${event?.description}
 	<table>
 		<tbody>

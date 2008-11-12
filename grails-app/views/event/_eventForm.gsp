@@ -10,6 +10,10 @@
 		<richui:richTextEditor name="description" value="${event?.description}" width="425" />
 	</p>
 	<p>
+		<label for="organizer"><g:message code="event.organizer" default="Organizer" />:</label><br/>
+		<g:select optionKey="id" from="${Organizer.list()}" name="organizer.id" value="${event?.organizer?.id}" ></g:select>
+	</p>
+	<p>
 		<label for="startTime"><g:message code="event.startTime" default="Start Time" />:</label><br/>
 		<richui:dateChooser name="startTime" format="MM/dd/yyyy" value="${event?.startTime}" />
 	</p>
