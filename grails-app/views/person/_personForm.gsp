@@ -38,45 +38,6 @@
 	        <label for="manager"><g:message code="person.manager" default="Do you wish register as Event Manager?" />:</label>
 			<g:checkBox name="manager" id="manager" />
 	    </p>
-	
-		<div id="previewContainer" style="display:none;">
-			<div id="previewPane" style="margin:10px; ">
-				<!-- 
-				<p>
-			        <label for="organization"><g:message code="person.organization" default="Organization" />:</label> <br/>
-					<g:select optionKey="id" from="${Organizer.list()}" name="event.id" value="${attendee?.event?.id}" ></g:select>
-			    </p>
-			-->
-			</div>
-		</div>
-	
-		<script type='text/javascript'>
-		function hidePreview() {           
-           Effect.SlideUp('previewContainer', { duration: 0.2 })
-        }
-        function showPreview() {
-           Effect.SlideDown('previewContainer', { duration: 0.3 });
-        }
-			<!--
-			(function(){
-				$('manager').observe('click',function (e) {
-					var toggle = $('manager').checked;
-					
-					if(toggle) {
-						//showPreview();
-						new Ajax.Updater('previewPane','${createLink(controller:'organizer',action:'choose',id:content?.title)}', {
-						      onComplete: function () { showPreview();}
-						    }
-						);
-					} else {
-						hidePreview();
-					}
-				});
-			})();
-			// -->
-		</script>
-		
-	</g:if>
 	<p>
         <label for="geolocation"><g:message code="person.geolocation" default="Geo Location" />:</label><br/>
 		<input type="text" size="42" maxlength="100" id="geolocation" name="geolocation" value="${fieldValue(bean:person,field:'geolocation')}"/>
