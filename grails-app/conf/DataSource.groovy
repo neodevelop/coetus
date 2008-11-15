@@ -32,6 +32,10 @@ environments {
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost:3306/coetus_dev"
 		}
+		hibernate {
+			show_sql=true
+			format_sql=true
+		}
 	}
 	test {
 		dataSource {
