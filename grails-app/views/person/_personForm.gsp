@@ -38,7 +38,8 @@
 	        <label for="manager"><g:message code="person.manager" default="Do you wish register as Event Manager?" />:</label>
 			<g:checkBox name="manager" id="manager" />
 	    </p>
-	<p>
+	</g:if>
+	<p>	
         <label for="geolocation"><g:message code="person.geolocation" default="Geo Location" />:</label><br/>
 		<input type="text" size="42" maxlength="100" id="geolocation" name="geolocation" value="${fieldValue(bean:person,field:'geolocation')}"/>
     </p>
