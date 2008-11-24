@@ -24,6 +24,12 @@ class ProfileController {
 	def edit = {
 		[person:Person.get(authenticateService.userDomain()?.id)]
 	}
+	def detail = {
+		def person = Person.get(params.id)
+		if(person) {
+			render(template:"../person/personDetails",model:[person:person])
+		}
+	}
 	def member = {
 		def id = params.id
 		def longId = null
