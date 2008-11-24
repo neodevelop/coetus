@@ -50,8 +50,7 @@ class Event {
 	String toString() { name }
 	
 	static def activeEvents(max) {
-		def criteria = Event.createCriteria()
-		criteria.list {
+		Event.withCriteria {
 			or {
 				eq("status", Status.OPEN)
 				eq("status", Status.FULL)
@@ -61,9 +60,8 @@ class Event {
 	}
 	
 	static def activeEventsByOrganizer(organizer, max) {
-		def criteria = Event.createCriteria()
-		criteria.list {
-			eq("organizer.id", organizer.id)
+		Event.withCriteria {
+		    eq("organizer.id", organizer.id)
 			or {
 				eq("status", Status.OPEN)
 				eq("status", Status.FULL)
