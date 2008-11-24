@@ -41,15 +41,13 @@ class FeedsController {
 	}
 	
 	def allEvents = {
-		def events = Event.activeEvents(20)
-		buildEventsFeed("Coetus", "allEvents", "All events in Coetus", events)
+		buildEventsFeed("Coetus", "allEvents", "All events in Coetus", Event.activeEvents(20))
 	}
 	
 	def eventsByOrganizer = {
 		def organizer = Organizer.get(params.id)
 		if(organizer) {
-			def events = Event.activeEventsByOrganizer(organizer, 20)
-			buildEventsFeed("Coetus", "eventsByOrganizer/${params.id}", "Eventos de ${organizer.name}", events)
+			buildEventsFeed("Coetus", "eventsByOrganizer/${params.id}", "Eventos de ${organizer.name}", Event.activeEventsByOrganizer(organizer, 20))
 		} else {
 			redirect(uri:"/")
 		}

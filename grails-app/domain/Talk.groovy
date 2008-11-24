@@ -52,5 +52,5 @@ class Talk {
 		speakers column:'talk_Id',joinTable:'TALKS_SPEAKERS'
 	}
 	
-	String toString() { "${title}" }
+	String toString() { title }
 }

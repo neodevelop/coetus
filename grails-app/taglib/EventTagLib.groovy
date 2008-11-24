@@ -19,11 +19,14 @@ class EventTagLib {
 	def authenticateService
 	
 	def currentEvents = { attrs ->
+		def max = 20
 		out <<  '<h3>'
 		out <<  attrs.title
 		out <<  '</h3> <div class="content"> <ul class="linklist">'
 		
-		for(event in Event.findAllByStatus(Status.OPEN)) {
+		if(attrs.max) {max = attrs.max}
+		
+		for(event in Event.activeEvents(max)) {
 			out << '<li> <a href="'
 			out << request.contextPath
 			out << '/events/detail/'
