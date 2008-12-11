@@ -14,9 +14,6 @@
 		<g:layoutHead />
 	</head>
 	<body>
-		<div id="spinner" class="spinner" style="display:none;">
-            <img src="${createLinkTo(dir:'images',file:'spinner.gif')}" alt="Spinner" />
-        </div>
 		<div id="outer">
 			<div id="inner">
 				<div id="header">
