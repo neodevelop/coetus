@@ -10,9 +10,13 @@
 			google.load("prototype", "1.6.0.2");
 			google.load("scriptaculous", "1.8.1");
 		</script>
+		<g:javascript library="application" />
 		<g:layoutHead />
 	</head>
 	<body>
+		<div id="spinner" class="spinner" style="display:none;">
+            <img src="${createLinkTo(dir:'images',file:'spinner.gif')}" alt="Spinner" />
+        </div>
 		<div id="outer">
 			<div id="inner">
 				<div id="header">

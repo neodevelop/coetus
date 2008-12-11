@@ -17,7 +17,7 @@
 class Talk {
 	static searchable = true
 	
-	Event event
+	//Event event
 	String title
 	String summary
 	Date startDate = new Date()
@@ -31,11 +31,11 @@ class Talk {
 	Date dateCreated
 	Date lastUpdated
 	
-	static belongsTo = [sPerson]
+	static belongsTo = [Person]
 	static hasMany = [speakers:Person]
 	
 	static constraints = {
-		event()
+		//event()
 		title(blank:false,size:1..200)
 		summary(blank:false,size:1..2000)
 		startDate()
