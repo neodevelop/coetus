@@ -36,7 +36,7 @@ class Event {
 	
 	static constraints = {
 		name(blank:false,size:0..200)
-		description(blank:true,size:0..15000)
+		description(blank:true,size:0..25000)
 		startTime(nullable:true)
 		endTime(nullable:true)
 		allDay(nullable:true)
@@ -69,4 +69,5 @@ class Event {
 			maxResults(max)
 		}
 	}
+	
 }

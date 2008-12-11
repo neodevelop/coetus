@@ -26,30 +26,11 @@ class UtilTagLib {
 		}
 	}
 	
-	def verifyUserManager = { attrs, body ->
-		def event = attrs.event
-		if(event?.createdBy?.id==authenticateService?.userDomain()?.id) {
-			out << body()
-		}
-	}
-	
 	def selfUserOrAdmin = { attrs, body ->
-		//def imageLocation = g.createLinkTo(dir:"images", file:"logo.jpg")
-		def granted = false
 		def idUsr = attrs.person?.id
-		if("true".equals(ifAllGranted(role:"ROLE_ADMIN") {'true'})) {
-			granted = true
-			log.debug "Se otorga por ser Administrador"
-		} else {
-			if(authenticateService.userDomain()?.id == idUsr) {
-				granted = true
-				log.debug "Se otorga por ser el mismo usuario"
-			}
-		}
-		if(granted) {
+		if("true".equals(ifAllGranted(role:"ROLE_ADMIN") {'true'}) || (authenticateService.userDomain()?.id == idUsr)) {
 			out << body()
 		}
-		
 	}
 	
 	private void checkDefaultRole() {
@@ -77,9 +58,6 @@ class UtilTagLib {
 			out << 'disabled="disabled" '
 		}
 		out << """value="true" """
-		// process remaining attributes
-		//outputAttributes(attrs)
-		// close the tag, with no body
 		out << ' />'
 	}
 	def dateFormat = { attrs ->

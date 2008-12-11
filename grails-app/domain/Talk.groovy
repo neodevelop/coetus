@@ -31,7 +31,7 @@ class Talk {
 	Date dateCreated
 	Date lastUpdated
 	
-	static belongsTo = Person
+	static belongsTo = [sPerson]
 	static hasMany = [speakers:Person]
 	
 	static constraints = {

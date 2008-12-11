@@ -14,5 +14,48 @@
  * limitations under the License.
  */
 class EventController {
-    def scaffold = true
+	def scaffold = true
+	def addTalkForm = {
+		def event = Event.get(params.id)
+		if(event) {
+			render(template:"addTalkForm",model:[event:event])
+		} else {
+			render "No se encontro el evento"
+		}
+	}
+	def addTalkToEvent = {
+		println params.eventId
+		def talk = new Talk(params)
+		def event = Event.get(params.eventId)
+		talk.event = event
+		
+		event.addToTalk(talk)
+        
+        def l = Event.activeEvents()
+
+		event.save()
+		
+		if(event.hasErrors()) {
+			throw new RuntimeException("")
+		}
+		if(event.save()) {
+			log.info "Guarde un evento"
+		} else {
+			throw new RuntimeException("")
+		}
+		
+		
+		if(talk.hasErrors()) {
+			throw new RuntimeException("")
+		}
+		if(talk.save()) {
+			log.info "Guarde un evento"
+		} else {
+			throw new RuntimeException("")
+		}
+		
+		
+		talk.save()
+		redirect(action:"show",id:params.eventId)
+	}
 }
