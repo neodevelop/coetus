@@ -24,6 +24,7 @@ hibernate {
     cache.use_second_level_cache=true
     cache.use_query_cache=true
     cache.provider_class='com.opensymphony.oscache.hibernate.OSCacheProvider'
+	format_sql=true
 }
 // environment specific settings
 environments {
@@ -33,8 +34,7 @@ environments {
 			url = "jdbc:mysql://localhost:3306/coetus_dev"
 		}
 		hibernate {
-			show_sql=true
-			format_sql=true
+			show_sql=false
 		}
 	}
 	test {
