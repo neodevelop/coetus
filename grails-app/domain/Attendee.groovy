@@ -27,4 +27,8 @@ class Attendee {
 		dateCreated(nullable:true)
 		lastUpdated(nullable:true)
 	}
+	
+	static mapping = {
+		event lazy:false // lazily fetch the event
+	}
 }

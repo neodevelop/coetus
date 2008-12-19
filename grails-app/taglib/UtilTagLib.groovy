@@ -61,7 +61,11 @@ class UtilTagLib {
 		out << ' />'
 	}
 	def dateFormat = { attrs ->
-	   out << new java.text.SimpleDateFormat(attrs.format).format(attrs.value)
+		if(attrs.value && attrs.value instanceof Date) {
+			out << new java.text.SimpleDateFormat(attrs.format).format(attrs.value)
+		} else {
+			log.warn "the value is not a java.util.Date"
+		}
 	}
 	
 	def modalIncludes = {

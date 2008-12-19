@@ -47,6 +47,11 @@ class Event {
 		organizer(nullable:false)
 	}
 	
+	static mapping = {
+		createdBy lazy:false // lazily fetch the createdBy
+	}
+	
+	
 	String toString() { name }
 	
 	static def activeEvents(max) {
